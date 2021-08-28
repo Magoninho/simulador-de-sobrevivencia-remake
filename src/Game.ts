@@ -4,6 +4,7 @@ class Game {
 	grass: Grass;
 	inputHandler: InputHandler;
 	player: Player;
+	block: Block;
 
 	constructor() {
 
@@ -13,7 +14,8 @@ class Game {
 		// instanciate stuff
 		this.grass = new Grass();
 		this.inputHandler = new InputHandler(this);
-		this.player = new Player(this, 200, 150);
+		this.block = new Block(100, 100, 20, 20);
+		this.player = new Player(game, 200, 150);
 	}
 
 	update(deltaTime) {
@@ -23,5 +25,6 @@ class Game {
 	render(ctx) {
 		this.grass.render(ctx);
 		this.player.render(ctx);
+		this.block.render(ctx);
 	}
 }

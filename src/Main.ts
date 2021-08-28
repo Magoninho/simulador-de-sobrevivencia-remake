@@ -13,7 +13,7 @@ function gameLoop(timestamp: number): void {
 	let deltaTime: number = timestamp - lastTime;
 	lastTime = timestamp;
 
-	ctx.clearRect(0, 0, 600, 500);
+	ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
 	game.update(deltaTime);
 	game.render(ctx);

@@ -5,7 +5,8 @@ var Game = /** @class */ (function () {
         // instanciate stuff
         this.grass = new Grass();
         this.inputHandler = new InputHandler(this);
-        this.player = new Player(this, 200, 150);
+        this.block = new Block(100, 100, 20, 20);
+        this.player = new Player(game, 200, 150);
     };
     Game.prototype.update = function (deltaTime) {
         this.player.update(deltaTime);
@@ -13,6 +14,7 @@ var Game = /** @class */ (function () {
     Game.prototype.render = function (ctx) {
         this.grass.render(ctx);
         this.player.render(ctx);
+        this.block.render(ctx);
     };
     return Game;
 }());

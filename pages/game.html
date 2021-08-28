@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<link rel="stylesheet" href="../styles/style.css">
+	<link rel="stylesheet" href="../styles/w3.css">
 	<title>Jogo</title>
 </head>
 <body>
@@ -13,28 +14,44 @@
 			<div id="gamearea">
 				<canvas id="gamecanvas" width="600" height="500"></canvas>
 			</div>
-			<div id="stats">
-				<p><b>Stats</b></p>
-				<table style="width: 100%;">
-					<tr>
-						<td><p>Fome: 0/10</p></td>
-						<td><p>Sede: 0/10</p></td>
-					</tr>
-					<tr>
-						<td><p>Cagar: 0/10</p></td>
-						<td><p>Energia: 10/10</p></td>
-					</tr>
-				</table>
+			<div id="stats" style="font-family: Arial, Helvetica, sans-serif; ">
+				<div class="profile" style="float: left; background-color: lightgrey; box-shadow: 2px 2px 2px; text-align: center;">
+					<img src="../images/profile.png" width="100px" alt="profile">
+					<p>Gostosa</p>
+				</div>
+				<div class="hud" style="width: 80%; float: right;">
+					<p><b>Stats</b></p>
+					<table style="width: 100%;">
+						<tr>
+							<td><div class="w3-grey">
+								<div class="w3-green" style="height:24px;width:10%">Fome</div>
+							  </div></td>
+							<td><div class="w3-grey">
+								<div class="w3-blue" style="height:24px;width:10%">Sede</div>
+							  </div></td>
+						</tr>
+						<tr>
+							<td><div class="w3-grey">
+								<div class="w3-brown" style="height:24px;width:100%">Cagar</div>
+							  </div></td>
+							<td><div class="w3-grey">
+								<div class="w3-red" style="height:24px;width:100%">Energia</div>
+							  </div></td>
+						</tr>
+					</table>	
+				</div>
 			</div>
 		</div>
 		<div id="info">
 			<h2>sla</h2>
 			<hr>
 			<p>Use WASD para controlar o personagem</p>
-			<button>Sim.</button>
+			<button>Foda.</button>
 		</div>
 	</div>
+	<script src="../dist/Constants.js"></script>
 	<script src="../dist/Game.js"></script>
+	<script src="../dist/Block.js"></script>
 	<script src="../dist/Grass.js"></script>
 	<script src="../dist/Player.js"></script>
 	<script src="../dist/InputHandler.js"></script>
