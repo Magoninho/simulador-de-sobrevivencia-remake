@@ -39,7 +39,7 @@ var StatsManager = /** @class */ (function () {
         }, 10000);
     };
     StatsManager.prototype.energyDecrease = function () {
-        this.energy -= 0.05;
+        this.energy -= 0.02;
         this.energyDiv.style.width = this.energy + "%";
     };
     return StatsManager;

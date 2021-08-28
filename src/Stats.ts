@@ -50,7 +50,7 @@ class StatsManager {
 		}, 10000);
 	}
 	energyDecrease(): void {
-		this.energy -= 0.05;
+		this.energy -= 0.02;
 		this.energyDiv.style.width = `${this.energy}%`;
 	}
 }
