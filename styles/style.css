@@ -1,7 +1,7 @@
 body {
 	background-image: url(../images/sea_forest_bg.png);
-	background-repeat: no-repeat;
-	background-size: cover;
+	background-attachment: fixed;
+	background-size: 100%;
 }
 canvas {
 	width: 400px; 

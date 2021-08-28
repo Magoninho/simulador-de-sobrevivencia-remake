@@ -3,7 +3,7 @@ class Grass {
 
 	}
 
-	render(ctx) {
+	render(ctx: CanvasRenderingContext2D): void {
 		ctx.fillStyle = "green";
 		ctx.fillRect(0, 0, 400, 300);
 	}

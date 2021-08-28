@@ -4,11 +4,15 @@ var Game = /** @class */ (function () {
     Game.prototype.start = function () {
         // instanciate stuff
         this.grass = new Grass();
+        this.inputHandler = new InputHandler(this);
+        this.player = new Player(this, 10, 10);
     };
     Game.prototype.update = function (deltaTime) {
+        this.player.update(deltaTime);
     };
     Game.prototype.render = function (ctx) {
         this.grass.render(ctx);
+        this.player.render(ctx);
     };
     return Game;
 }());
