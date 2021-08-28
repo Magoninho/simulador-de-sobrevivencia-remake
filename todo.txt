@@ -1,0 +1,5 @@
+TODO
+
+- consertar o background
+- renomear as funções de colisão
+- esquema de distancias pra interação com dialogo

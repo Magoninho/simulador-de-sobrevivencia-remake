@@ -1,12 +1,19 @@
 body {
-	background-image: url(../images/sea_forest_bg_night.png);
+	background-image: url(../images/sea_forest_bg.png);
 	background-attachment: fixed;
-	background-size: 100%;
+	background-repeat: no-repeat;
+  	background-size: cover;
 }
 
 p, h2, h1 {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	
+}
+
+.dialogs {
+	background-color: lightgrey;
+	margin: 5px;
+	padding: 10px;
 }
 
 table, th, td {

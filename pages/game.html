@@ -17,25 +17,25 @@
 			<div id="stats" style="font-family: Arial, Helvetica, sans-serif; ">
 				<div class="profile" style="float: left; background-color: lightgrey; box-shadow: 2px 2px 2px; text-align: center;">
 					<img src="../images/profile.png" width="100px" alt="profile">
-					<p>Gostosa</p>
+					<p>gostosa</p>
 				</div>
 				<div class="hud" style="width: 80%; float: right;">
 					<p><b>Stats</b></p>
 					<table style="width: 100%;">
 						<tr>
 							<td><div class="w3-grey">
-								<div class="w3-green" style="height:24px;width:10%">Fome</div>
+								<div class="w3-green" id="hungryDiv" style="height:24px;width:100%">Fome</div>
 							  </div></td>
 							<td><div class="w3-grey">
-								<div class="w3-blue" style="height:24px;width:10%">Sede</div>
+								<div class="w3-blue" id="thirstDiv" style="height:24px;width:100%">Sede</div>
 							  </div></td>
 						</tr>
 						<tr>
 							<td><div class="w3-grey">
-								<div class="w3-brown" style="height:24px;width:100%">Cagar</div>
+								<div class="w3-brown" id="cagarDiv" style="height:24px;width:100%">Cagar</div>
 							  </div></td>
 							<td><div class="w3-grey">
-								<div class="w3-red" style="height:24px;width:100%">Energia</div>
+								<div class="w3-red" id="energyDiv" style="height:24px;width:100%">Energia</div>
 							  </div></td>
 						</tr>
 					</table>	
@@ -43,13 +43,16 @@
 			</div>
 		</div>
 		<div id="info">
-			<h2>sla</h2>
-			<hr>
-			<p>Use WASD para controlar o personagem</p>
-			<button>Foda.</button>
+
+			<div class="dialogs" id="tutorial"></div>
+			<div class="dialogs" style="display: none;" id="dialogDiv">
+
+			</div>
 		</div>
 	</div>
 	<script src="../dist/Constants.js"></script>
+	<script src="../dist/Stats.js"></script>
+	<script src="../dist/Dialog.js"></script>
 	<script src="../dist/Game.js"></script>
 	<script src="../dist/Block.js"></script>
 	<script src="../dist/Grass.js"></script>
