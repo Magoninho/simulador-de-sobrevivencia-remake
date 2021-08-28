@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"sourceMap": true,
+		"rootDir": "./src/",
+		"outDir": "./dist/",
+		"lib": [
+			"es5",
+			"dom"
+		],
+		"watch": true,
+		"noUnusedLocals": true,
+		"module": "commonjs"
+	}
+}
