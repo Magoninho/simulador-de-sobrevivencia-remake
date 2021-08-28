@@ -44,6 +44,11 @@ class Player {
 		}
 		this.x += this.vx;
 		this.y += this.vy;
+		
+		if (this.x < 0) this.x = 0;
+		if (this.x > 600 - 20) this.x = 600 - 20;
+		if (this.y < 0) this.y = 0;
+		if (this.y > 500 - 20) this.y = 500 - 20;
 
 		// console.log(this.vx, this.vy)
 		// this.x += 0.5;
