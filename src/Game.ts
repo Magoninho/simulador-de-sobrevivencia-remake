@@ -13,7 +13,7 @@ class Game {
 		// instanciate stuff
 		this.grass = new Grass();
 		this.inputHandler = new InputHandler(this);
-		this.player = new Player(this, 10, 10);
+		this.player = new Player(this, 200, 150);
 	}
 
 	update(deltaTime) {

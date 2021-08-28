@@ -3,7 +3,7 @@ var Grass = /** @class */ (function () {
     }
     Grass.prototype.render = function (ctx) {
         ctx.fillStyle = "green";
-        ctx.fillRect(0, 0, 400, 300);
+        ctx.fillRect(0, 0, 600, 500);
     };
     return Grass;
 }());

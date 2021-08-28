@@ -6,7 +6,7 @@ var lastTime = 0;
 function gameLoop(timestamp) {
     var deltaTime = timestamp - lastTime;
     lastTime = timestamp;
-    ctx.clearRect(0, 0, 400, 300);
+    ctx.clearRect(0, 0, 600, 500);
     game.update(deltaTime);
     game.render(ctx);
     requestAnimationFrame(gameLoop);
