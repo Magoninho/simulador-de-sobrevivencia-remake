@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
 	<link rel="stylesheet" href="../styles/w3.css">
 	<title>Jogo</title>
 </head>
+
 <body>
 	<div class="gameboard">
 		<div class="right" style="float: left;">
@@ -15,30 +17,38 @@
 				<canvas id="gamecanvas" width="600" height="500"></canvas>
 			</div>
 			<div id="stats" style="font-family: Arial, Helvetica, sans-serif; ">
-				<div class="profile" style="float: left; background-color: lightgrey; box-shadow: 2px 2px 2px; text-align: center;">
+				<div class="profile" id="profile"
+					style="float: left; background-color: lightgrey; box-shadow: 2px 2px 2px; text-align: center;">
 					<img src="../images/profile.png" width="100px" alt="profile">
-					<p>gostosa</p>
 				</div>
 				<div class="hud" style="width: 80%; float: right;">
 					<p><b>Stats</b></p>
 					<table style="width: 100%;">
 						<tr>
-							<td><div class="w3-grey">
-								<div class="w3-green" id="hungryDiv" style="height:24px;width:100%">Fome</div>
-							  </div></td>
-							<td><div class="w3-grey">
-								<div class="w3-blue" id="thirstDiv" style="height:24px;width:100%">Sede</div>
-							  </div></td>
+							<td>
+								<div class="w3-grey">
+									<div class="w3-green" id="hungryDiv" style="height:24px;width:100%">Fome</div>
+								</div>
+							</td>
+							<td>
+								<div class="w3-grey">
+									<div class="w3-blue" id="thirstDiv" style="height:24px;width:100%">Sede</div>
+								</div>
+							</td>
 						</tr>
 						<tr>
-							<td><div class="w3-grey">
-								<div class="w3-brown" id="cagarDiv" style="height:24px;width:100%">Cagar</div>
-							  </div></td>
-							<td><div class="w3-grey">
-								<div class="w3-red" id="energyDiv" style="height:24px;width:100%">Energia</div>
-							  </div></td>
+							<td>
+								<div class="w3-grey">
+									<div class="w3-brown" id="cagarDiv" style="height:24px;width:100%">Cagar</div>
+								</div>
+							</td>
+							<td>
+								<div class="w3-grey">
+									<div class="w3-red" id="energyDiv" style="height:24px;width:100%">Energia</div>
+								</div>
+							</td>
 						</tr>
-					</table>	
+					</table>
 				</div>
 			</div>
 		</div>
@@ -50,6 +60,17 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		let pName = document.createElement('P');
+		let playerName = window.prompt("Qual o nome do seu jogador? (Máx: 10)");
+		if (playerName != undefined) {
+			pName.innerHTML = playerName.substring(0, 10);
+		} else {
+			pName.innerHTML = "Nigga";
+		}
+		document.getElementById("profile").appendChild(pName);
+
+	</script>
 	<script src="../dist/Constants.js"></script>
 	<script src="../dist/Stats.js"></script>
 	<script src="../dist/Dialog.js"></script>
@@ -61,4 +82,5 @@
 	<script src="../dist/Main.js"></script>
 
 </body>
+
 </html>
