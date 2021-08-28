@@ -10,8 +10,6 @@ class Player {
 	constructor(game, x, y) {
 		this.x = x;
 		this.y = y;
-		this.vx = 7;
-		this.vy = 7;
 		this.dx = 0;
 		this.dy = 0;
 		
@@ -36,8 +34,18 @@ class Player {
 
 
 	public update(deltaTime: number): void {
-		this.x += this.vx * this.dx;
-		this.y += this.vy * this.dy;
+		this.vx = this.dx * 5;
+		this.vy = this.dy * 5;
+		
+		
+		if (this.dx != 0 && this.dy != 0) {
+			this.vx /= 1.414;
+			this.vy /= 1.414;
+		}
+		this.x += this.vx;
+		this.y += this.vy;
+
+		// console.log(this.vx, this.vy)
 		// this.x += 0.5;
 	}
 

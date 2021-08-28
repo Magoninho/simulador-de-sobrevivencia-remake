@@ -2,8 +2,6 @@ var Player = /** @class */ (function () {
     function Player(game, x, y) {
         this.x = x;
         this.y = y;
-        this.vx = 7;
-        this.vy = 7;
         this.dx = 0;
         this.dy = 0;
     }
@@ -22,8 +20,15 @@ var Player = /** @class */ (function () {
         this.dy = 0;
     };
     Player.prototype.update = function (deltaTime) {
-        this.x += this.vx * this.dx;
-        this.y += this.vy * this.dy;
+        this.vx = this.dx * 5;
+        this.vy = this.dy * 5;
+        if (this.dx != 0 && this.dy != 0) {
+            this.vx /= 1.414;
+            this.vy /= 1.414;
+        }
+        this.x += this.vx;
+        this.y += this.vy;
+        // console.log(this.vx, this.vy)
         // this.x += 0.5;
     };
     Player.prototype.render = function (ctx) {

@@ -3,10 +3,7 @@ body {
 	background-attachment: fixed;
 	background-size: 100%;
 }
-canvas {
-	width: 400px; 
-	height: 300px;
-}
+
 
 .gameboard {
 	position: absolute;
