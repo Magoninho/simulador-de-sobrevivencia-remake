@@ -15,10 +15,16 @@ class Level {
 
 		for (let i = 0; i < this.level.length; i++) {
 			for (let j = 0; j < this.level[0].length; j++) {
-				if (LEVEL_1[i][j] == 1)
-					blocks.push(new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "rgb(194, 178, 128)"));
-				else if (LEVEL_1[i][j] == 0)
-					blocks.push(new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "green"));
+				if (LEVEL_1[i][j] == 2) {
+					let block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "rgb(194, 178, 128)");
+					block.addImage(SAND_BLOCK);
+					blocks.push(block);
+				} else if (LEVEL_1[i][j] == 1) {
+					// grass
+					let block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "green");
+					block.addImage(GRASS_BLOCK);
+					blocks.push(block);
+				}
 			}
 		}
 

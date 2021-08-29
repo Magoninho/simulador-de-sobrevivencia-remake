@@ -9,11 +9,19 @@ var Block = /** @class */ (function () {
     }
     Block.prototype.onInteract = function () {
     };
+    Block.prototype.addImage = function (image) {
+        this.image = image;
+    };
     Block.prototype.update = function () {
     };
     Block.prototype.render = function (ctx) {
-        ctx.fillStyle = "" + this.color;
-        ctx.fillRect(this.x, this.y, this.width + 1, this.height + 1);
+        if (this.image != undefined) {
+            ctx.drawImage(this.image, this.x, this.y, this.width + 1, this.height + 1);
+        }
+        else {
+            ctx.fillStyle = "" + this.color;
+            ctx.fillRect(this.x, this.y, this.width + 1, this.height + 1);
+        }
     };
     return Block;
 }());

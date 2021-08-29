@@ -6,6 +6,8 @@ class Block {
 	collidable: boolean;
 	color: string;
 
+	image: any; // this is a quick solution for testing
+
 	constructor(x: number, y: number, width: number, height: number, color: string, collidable?: boolean) {
 		this.x = x;
 		this.y = y;
@@ -16,15 +18,23 @@ class Block {
 	}
 
 	public onInteract(): void {
-		
+
+	}
+
+	public addImage(image: HTMLImageElement): void {
+		this.image = image;
 	}
 
 	public update() {
 
 	}
 
-	render(ctx) {
-		ctx.fillStyle = `${this.color}`;
-		ctx.fillRect(this.x, this.y, this.width+1, this.height+1);
+	render(ctx): void {
+		if (this.image != undefined) {
+			ctx.drawImage(this.image, this.x, this.y, this.width + 1, this.height + 1);
+		} else {
+			ctx.fillStyle = `${this.color}`;
+			ctx.fillRect(this.x, this.y, this.width + 1, this.height + 1);
+		}
 	}
 }

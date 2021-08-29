@@ -39,6 +39,7 @@ var InputHandler = /** @class */ (function () {
                     // move right
                     game.player.dx = 1;
                     game.player.isMoving = true;
+                    console.log(game.player.vx);
                     break;
             }
         });

@@ -4,7 +4,6 @@ class Game {
 	grass: Grass;
 	inputHandler: InputHandler;
 	player: Player;
-	block: Block; //todo: remove
 	level: Level;
 	blocks: Block[];
 
@@ -27,6 +26,7 @@ class Game {
 	}
 
 	render(ctx) {
+		
 		this.grass.render(ctx);
 		for (let blockIndex = 0; blockIndex < this.blocks.length; blockIndex++) {
 			const block = this.blocks[blockIndex];

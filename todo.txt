@@ -6,3 +6,4 @@ TODO
 - adicionar funções de onSlaOqFinishes no Stats pra fazer coisa acontecer
 - colocar mais tipagem
 - comentar
+- melhorar o inputhandler

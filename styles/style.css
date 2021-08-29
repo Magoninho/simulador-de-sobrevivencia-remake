@@ -5,6 +5,10 @@ body {
   	background-size: cover;
 }
 
+.imagesrc {
+	display: none;
+}
+
 p, h2, h1 {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	
@@ -65,6 +69,5 @@ td:hover {background-color: yellow;}
 	width: 400px;
 	height: 700px;
 	float: right;
-	display: inline-block;
 	padding-left: 5px;
 }
