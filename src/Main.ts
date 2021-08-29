@@ -25,6 +25,7 @@ statsManager.thirstDecrease();
 statsManager.cagarDecrease();
 statsManager.energyDecrease();
 
+generateMap(10, 10);
 
 let dialogDiv = document.getElementById('dialogDiv') as HTMLDivElement;
 let tutorialDiv = document.getElementById('tutorial') as HTMLDivElement;
@@ -46,6 +47,7 @@ tutorialDialogBox.show(tutorialDiv);
 function lerp(v0: number, v1: number, t: number): number {
 	return (1 - t) * v0 + t * v1;
 }
+
 let cameraX = 0;
 let cameraY = 0;
 let lastTime: number = 0;

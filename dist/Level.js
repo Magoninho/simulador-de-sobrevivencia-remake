@@ -10,12 +10,12 @@ var Level = /** @class */ (function () {
         var blocks = [];
         for (var i = 0; i < this.level.length; i++) {
             for (var j = 0; j < this.level[0].length; j++) {
-                if (LEVEL_1[i][j] == 2) {
+                if (this.level[i][j] == 1) {
                     var block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "rgb(194, 178, 128)");
                     block.addImage(SAND_BLOCK);
                     blocks.push(block);
                 }
-                else if (LEVEL_1[i][j] == 1) {
+                else if (this.level[i][j] == 2) {
                     // grass
                     var block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "green");
                     block.addImage(GRASS_BLOCK);

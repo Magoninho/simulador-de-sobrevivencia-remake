@@ -16,6 +16,7 @@ statsManager.hungryDecrease();
 statsManager.thirstDecrease();
 statsManager.cagarDecrease();
 statsManager.energyDecrease();
+generateMap(10, 10);
 var dialogDiv = document.getElementById('dialogDiv');
 var tutorialDiv = document.getElementById('tutorial');
 // let dialogBox = new Dialog(["testando dialogo foda", "frase 2 omg"], "ok fodase.");

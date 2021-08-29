@@ -6,4 +6,5 @@ TODO
 - adicionar funções de onSlaOqFinishes no Stats pra fazer coisa acontecer
 - colocar mais tipagem
 - comentar
+- player nadando
 - melhorar o inputhandler
