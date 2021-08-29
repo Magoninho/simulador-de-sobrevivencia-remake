@@ -10,6 +10,16 @@ p, h2, h1 {
 	
 }
 
+canvas {
+	image-rendering: pixelated;
+}
+
+kbd {
+	border-radius: 2px;
+	padding: 2px;
+	border: 1px solid black;
+}
+
 .dialogs {
 	background-color: lightgrey;
 	margin: 5px;

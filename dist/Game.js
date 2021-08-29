@@ -5,16 +5,20 @@ var Game = /** @class */ (function () {
         // instanciate stuff
         this.grass = new Grass();
         this.inputHandler = new InputHandler(this);
-        this.block = new Block(100, 100, 20, 20);
-        this.player = new Player(game, 200, 150);
+        this.player = new Player(game, GAME_WIDTH / 2, GAME_HEIGHT / 2);
+        this.level = new Level(LEVEL_1);
+        this.blocks = this.level.buildLevel();
     };
     Game.prototype.update = function (deltaTime) {
         this.player.update(deltaTime);
     };
     Game.prototype.render = function (ctx) {
         this.grass.render(ctx);
+        for (var blockIndex = 0; blockIndex < this.blocks.length; blockIndex++) {
+            var block = this.blocks[blockIndex];
+            block.render(ctx);
+        }
         this.player.render(ctx);
-        this.block.render(ctx);
     };
     return Game;
 }());

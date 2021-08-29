@@ -3,3 +3,6 @@ TODO
 - consertar o background
 - renomear as funções de colisão
 - esquema de distancias pra interação com dialogo
+- adicionar funções de onSlaOqFinishes no Stats pra fazer coisa acontecer
+- colocar mais tipagem
+- comentar

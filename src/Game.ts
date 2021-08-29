@@ -4,7 +4,9 @@ class Game {
 	grass: Grass;
 	inputHandler: InputHandler;
 	player: Player;
-	block: Block;
+	block: Block; //todo: remove
+	level: Level;
+	blocks: Block[];
 
 	constructor() {
 
@@ -14,8 +16,10 @@ class Game {
 		// instanciate stuff
 		this.grass = new Grass();
 		this.inputHandler = new InputHandler(this);
-		this.block = new Block(100, 100, 20, 20);
-		this.player = new Player(game, 200, 150);
+		this.player = new Player(game, GAME_WIDTH/2, GAME_HEIGHT/2);
+		this.level = new Level(LEVEL_1);
+
+		this.blocks = this.level.buildLevel();
 	}
 
 	update(deltaTime) {
@@ -24,7 +28,10 @@ class Game {
 
 	render(ctx) {
 		this.grass.render(ctx);
+		for (let blockIndex = 0; blockIndex < this.blocks.length; blockIndex++) {
+			const block = this.blocks[blockIndex];
+			block.render(ctx);
+		}
 		this.player.render(ctx);
-		this.block.render(ctx);
 	}
 }

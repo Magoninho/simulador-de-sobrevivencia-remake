@@ -17,7 +17,6 @@ var StatsManager = /** @class */ (function () {
                 _this.hungry--;
                 _this.hungryDiv.style.width = _this.hungry + "%";
             }
-            console.log(_this.hungry);
         }, 2000);
     };
     StatsManager.prototype.thirstDecrease = function () {

@@ -29,7 +29,6 @@ class StatsManager {
 				this.hungry--;
 				this.hungryDiv.style.width = `${this.hungry}%`;
 			}
-			console.log(this.hungry);
 		}, 2000);
 
 	}
