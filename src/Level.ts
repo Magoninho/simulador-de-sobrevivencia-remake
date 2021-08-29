@@ -25,6 +25,10 @@ class Level {
 					let block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "green");
 					block.addImage(GRASS_BLOCK);
 					blocks.push(block);
+				} else if (this.level[i][j] == 3) {
+					let block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "green");
+					block.addImage(DIRT_BLOCK);
+					blocks.push(block);
 				}
 			}
 		}

@@ -5,7 +5,7 @@ var Game = /** @class */ (function () {
         // instanciate stuff
         this.grass = new Grass();
         this.inputHandler = new InputHandler(this);
-        this.player = new Player(game, GAME_WIDTH / 2, GAME_HEIGHT / 2);
+        this.player = new Player(game, WORLD_WIDTH / 2, WORLD_HEIGHT / 2);
         this.level = new Level(LEVEL_1);
         this.blocks = this.level.buildLevel();
     };

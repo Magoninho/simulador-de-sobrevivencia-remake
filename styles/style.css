@@ -19,6 +19,8 @@ canvas {
 	image-rendering: -webkit-crisp-edges;
 	image-rendering: pixelated;
 	image-rendering: crisp-edges;
+	border: 2px solid black;
+	margin: auto;
 }
 
 kbd {
@@ -56,15 +58,16 @@ td:hover {background-color: yellow;}
 	/* background-color: red; */
 	width: 600px;
 	height: 500px;
-	margin-right: 5px;
+	margin-right: 10px;
 	
 }
 #stats {
 	background-color: cornsilk;
-	width: 600px;
+	width: 604px;
 	height: 200px;
 	display: inline-block;
 	cursor: default;
+	border: 2px solid black;
 	
 }
 #info {
@@ -73,4 +76,5 @@ td:hover {background-color: yellow;}
 	height: 700px;
 	float: right;
 	padding-left: 5px;
+	border: 2px solid black;
 }

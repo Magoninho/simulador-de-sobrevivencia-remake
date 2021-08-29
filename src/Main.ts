@@ -48,8 +48,10 @@ function lerp(v0: number, v1: number, t: number): number {
 	return (1 - t) * v0 + t * v1;
 }
 
-let cameraX = 0;
-let cameraY = 0;
+// TODO: organize the camera thing
+
+let cameraX = -game.player.x + GAME_WIDTH/2;
+let cameraY = -game.player.y + GAME_HEIGHT/2;
 let lastTime: number = 0;
 function gameLoop(timestamp: number): void {
 	let deltaTime: number = timestamp - lastTime;
@@ -58,19 +60,19 @@ function gameLoop(timestamp: number): void {
 	ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 	game.update(deltaTime);
 	
-
+	
 	cameraX = lerp(cameraX, -game.player.x + GAME_WIDTH/2, 0.1);
 	cameraY = lerp(cameraY, -game.player.y + GAME_HEIGHT/2, 0.1);
-
+	
 	cameraX = Math.min(200, cameraX);
 	cameraY = Math.min(200, cameraY);
-
+	
 	cameraX = Math.max(cameraX, -WORLD_WIDTH+GAME_WIDTH-200);
 	cameraY = Math.max(cameraY, -WORLD_HEIGHT+GAME_HEIGHT-200);
-
+	
 	ctx.translate(cameraX, cameraY);
 	
-	// console.log(cameraX, -WORLD_WIDTH+GAME_WIDTH);
+	// console.log(cameraX);
 	game.render(ctx);
 	ctx.restore();
 

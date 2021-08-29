@@ -32,8 +32,9 @@ tutorialDialogBox.show(tutorialDiv);
 function lerp(v0, v1, t) {
     return (1 - t) * v0 + t * v1;
 }
-var cameraX = 0;
-var cameraY = 0;
+// TODO: organize the camera thing
+var cameraX = -game.player.x + GAME_WIDTH / 2;
+var cameraY = -game.player.y + GAME_HEIGHT / 2;
 var lastTime = 0;
 function gameLoop(timestamp) {
     var deltaTime = timestamp - lastTime;
@@ -48,7 +49,7 @@ function gameLoop(timestamp) {
     cameraX = Math.max(cameraX, -WORLD_WIDTH + GAME_WIDTH - 200);
     cameraY = Math.max(cameraY, -WORLD_HEIGHT + GAME_HEIGHT - 200);
     ctx.translate(cameraX, cameraY);
-    // console.log(cameraX, -WORLD_WIDTH+GAME_WIDTH);
+    // console.log(cameraX);
     game.render(ctx);
     ctx.restore();
     requestAnimationFrame(gameLoop);
