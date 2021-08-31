@@ -44,10 +44,10 @@ function gameLoop(timestamp) {
     game.update(deltaTime);
     cameraX = lerp(cameraX, -game.player.x + GAME_WIDTH / 2, 0.1);
     cameraY = lerp(cameraY, -game.player.y + GAME_HEIGHT / 2, 0.1);
-    cameraX = Math.min(200, cameraX);
-    cameraY = Math.min(200, cameraY);
-    cameraX = Math.max(cameraX, -WORLD_WIDTH + GAME_WIDTH - 200);
-    cameraY = Math.max(cameraY, -WORLD_HEIGHT + GAME_HEIGHT - 200);
+    cameraX = Math.min(0, cameraX);
+    cameraY = Math.min(0, cameraY);
+    cameraX = Math.max(cameraX, -WORLD_WIDTH + GAME_WIDTH);
+    cameraY = Math.max(cameraY, -WORLD_HEIGHT + GAME_HEIGHT);
     ctx.translate(cameraX, cameraY);
     // console.log(cameraX);
     game.render(ctx);

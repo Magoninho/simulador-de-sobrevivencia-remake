@@ -11,4 +11,5 @@ var GRASS_BLOCK = document.getElementById('grass_block');
 var SAND_BLOCK = document.getElementById('sand_block');
 var STONE_BLOCK = document.getElementById('stone_block');
 var DIRT_BLOCK = document.getElementById('dirt_block');
+var WATER_BLOCK = document.getElementById('water_block');
 //# sourceMappingURL=Constants.js.map

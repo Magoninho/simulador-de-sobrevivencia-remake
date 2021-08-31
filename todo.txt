@@ -1,10 +1,12 @@
 TODO
 
-- consertar o background
-- renomear as funções de colisão
 - esquema de distancias pra interação com dialogo
 - adicionar funções de onSlaOqFinishes no Stats pra fazer coisa acontecer
 - colocar mais tipagem
 - comentar
 - player nadando
+- recolocar o prompt
 - melhorar o inputhandler
+- adicionar funções add para stats e fazer com que elas não permitam que ultrapasse
+- dialogos em cascata
+- assistir o video de rpg com pygame pra ver conceitos

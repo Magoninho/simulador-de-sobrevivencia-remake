@@ -51,24 +51,21 @@ class Player {
 					this.x + (dx * 10) + PLAYER_SIZE > game.blocks[block].x &&
 					this.y + (dy * 10) < game.blocks[block].y + game.blocks[block].height &&
 					this.y + (dy * 10) + PLAYER_SIZE > game.blocks[block].y) {
-					return true;
+						game.blocks[block].onCollisionEnter();
+						return true;
 				}
 			}
 		}
 		return false;
 	}
 
-	public interactWith(object: Block) {
-		object.onInteract();
-	}
-
 	public update(deltaTime: number): void {
 
 		if (this.isMoving) statsManager.energyDecrease();
-		let currentBlock: Block;
-		for (let block = 0; block < game.blocks.length; block++) {
-			currentBlock = game.blocks[block];
-		}
+		// let currentBlock: Block;
+		// for (let block = 0; block < game.blocks.length; block++) {
+		// 	currentBlock = game.blocks[block];
+		// }
 		if (!this.isColliding(this.dx, this.dy)) {
 			this.vx = this.dx * PLAYER_SPEED;
 			this.vy = this.dy * PLAYER_SPEED;
@@ -82,7 +79,7 @@ class Player {
 			this.x += this.vx;
 			this.y += this.vy;
 		} else {
-			new Dialog(["Voce colidiu com um bloco", "KKKKKKKK"], "ok").show(dialogDiv);
+			// new Dialog([`${}`], "ok").show(dialogDiv);
 		}
 
 		// }

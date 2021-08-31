@@ -8,6 +8,9 @@ var Game = /** @class */ (function () {
         this.player = new Player(game, WORLD_WIDTH / 2, WORLD_HEIGHT / 2);
         this.level = new Level(LEVEL_1);
         this.blocks = this.level.buildLevel();
+        this.mobList = [
+            new TesteMob(WORLD_WIDTH / 2, WORLD_HEIGHT / 2, 100, 100)
+        ];
     };
     Game.prototype.update = function (deltaTime) {
         this.player.update(deltaTime);
@@ -18,6 +21,7 @@ var Game = /** @class */ (function () {
             var block = this.blocks[blockIndex];
             block.render(ctx);
         }
+        this.mobList[0].render(ctx);
         this.player.render(ctx);
     };
     return Game;

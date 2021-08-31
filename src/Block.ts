@@ -4,21 +4,23 @@ class Block {
 	width: number;
 	height: number;
 	collidable: boolean;
+	rigid: boolean;
 	color: string;
 
 	image: any; // this is a quick solution for testing
 
-	constructor(x: number, y: number, width: number, height: number, color: string, collidable?: boolean) {
+	constructor(x: number, y: number, width: number, height: number, color: string, collidable?: boolean, rigid?: boolean) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.collidable = collidable;
+		this.rigid = rigid;
 		this.color = color;
 	}
 
-	public onInteract(): void {
-
+	public onCollisionEnter(): void {
+		new Dialog(["sexo"], "ok").show(dialogDiv);
 	}
 
 	public addImage(image: HTMLImageElement): void {

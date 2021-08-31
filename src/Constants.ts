@@ -18,3 +18,4 @@ const GRASS_BLOCK = document.getElementById('grass_block') as HTMLImageElement;
 const SAND_BLOCK = document.getElementById('sand_block') as HTMLImageElement;
 const STONE_BLOCK = document.getElementById('stone_block') as HTMLImageElement;
 const DIRT_BLOCK = document.getElementById('dirt_block') as HTMLImageElement;
+const WATER_BLOCK = document.getElementById('water_block') as HTMLImageElement;

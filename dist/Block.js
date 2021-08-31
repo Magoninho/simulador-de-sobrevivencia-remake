@@ -1,13 +1,15 @@
 var Block = /** @class */ (function () {
-    function Block(x, y, width, height, color, collidable) {
+    function Block(x, y, width, height, color, collidable, rigid) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.collidable = collidable;
+        this.rigid = rigid;
         this.color = color;
     }
-    Block.prototype.onInteract = function () {
+    Block.prototype.onCollisionEnter = function () {
+        new Dialog(["sexo"], "ok").show(dialogDiv);
     };
     Block.prototype.addImage = function (image) {
         this.image = image;

@@ -6,6 +6,9 @@ class Game {
 	player: Player;
 	level: Level;
 	blocks: Block[];
+	mobList: Mob[];
+
+	testeMob: TesteMob;
 
 	constructor() {
 
@@ -17,8 +20,13 @@ class Game {
 		this.inputHandler = new InputHandler(this);
 		this.player = new Player(game, WORLD_WIDTH/2, WORLD_HEIGHT/2);
 		this.level = new Level(LEVEL_1);
-
 		this.blocks = this.level.buildLevel();
+
+		this.mobList = [
+			new TesteMob(WORLD_WIDTH/2, WORLD_HEIGHT/2, 100, 100)
+		];
+		
+
 	}
 
 	update(deltaTime) {
@@ -32,6 +40,7 @@ class Game {
 			const block = this.blocks[blockIndex];
 			block.render(ctx);
 		}
+		this.mobList[0].render(ctx);
 		this.player.render(ctx);
 	}
 }
