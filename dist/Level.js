@@ -12,7 +12,7 @@ var Level = /** @class */ (function () {
             for (var j = 0; j < this.level[0].length; j++) {
                 var tile = this.level[i][j];
                 if (tile == 1) {
-                    var block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "blue", true);
+                    var block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "blue");
                     block.addImage(WATER_BLOCK);
                     block.onCollisionEnter = function () {
                         new Dialog(["vose bebe aqua"], "ok").show(dialogDiv);

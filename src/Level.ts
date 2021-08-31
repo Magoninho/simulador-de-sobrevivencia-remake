@@ -18,7 +18,7 @@ class Level {
 			for (let j = 0; j < this.level[0].length; j++) {
 				let tile: number = this.level[i][j];
 				if (tile == 1) {
-					let block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "blue", true);
+					let block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "blue");
 					block.addImage(WATER_BLOCK);
 					block.onCollisionEnter = () => {
 						new Dialog(["vose bebe aqua"], "ok").show(dialogDiv);

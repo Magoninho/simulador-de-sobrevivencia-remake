@@ -9,11 +9,12 @@ var Game = /** @class */ (function () {
         this.level = new Level(LEVEL_1);
         this.blocks = this.level.buildLevel();
         this.mobList = [
-            new TesteMob(WORLD_WIDTH / 2, WORLD_HEIGHT / 2, 100, 100)
+            new Canguru(Math.floor(Math.random() * WORLD_WIDTH - 200) + 200, WORLD_HEIGHT - 200, 200, 100)
         ];
     };
     Game.prototype.update = function (deltaTime) {
         this.player.update(deltaTime);
+        this.mobList[0].update();
     };
     Game.prototype.render = function (ctx) {
         this.grass.render(ctx);

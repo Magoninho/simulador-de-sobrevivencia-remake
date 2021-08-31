@@ -44,7 +44,7 @@ class Player {
 	// TODO: fazer um array com walls e um loop pra testar colisão com cada um dentro dessa função
 	// TODO: renomear para isCollidingWithWalls pra fazer sentido essa alteração
 
-	private isColliding(dx: number, dy: number): boolean {
+	private isColliding(dx: number, dy: number): boolean { // um grupo talvez?
 		for (let block = 0; block < game.blocks.length; block++) {
 			if (game.blocks[block].collidable) {
 				if (this.x + (dx * 10) < game.blocks[block].x + game.blocks[block].width &&

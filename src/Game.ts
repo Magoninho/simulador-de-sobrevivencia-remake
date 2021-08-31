@@ -23,7 +23,7 @@ class Game {
 		this.blocks = this.level.buildLevel();
 
 		this.mobList = [
-			new TesteMob(WORLD_WIDTH/2, WORLD_HEIGHT/2, 100, 100)
+			new Canguru(Math.floor(Math.random() * WORLD_WIDTH-200) + 200, WORLD_HEIGHT-200, 200, 100)
 		];
 		
 
@@ -31,6 +31,7 @@ class Game {
 
 	update(deltaTime) {
 		this.player.update(deltaTime);
+		this.mobList[0].update();
 	}
 
 	render(ctx) {
