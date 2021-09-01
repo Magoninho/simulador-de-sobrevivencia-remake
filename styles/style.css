@@ -9,9 +9,13 @@ body {
 	display: none;
 }
 
+
 p, h2, h1 {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	
+}
+#resolution_warn {
+	display: none;
 }
 
 canvas {
@@ -27,6 +31,11 @@ kbd {
 	border-radius: 2px;
 	padding: 2px;
 	border: 1px solid black;
+}
+
+.hud {
+	width: 80%; 
+	float: right;
 }
 
 .dialogs {
@@ -78,3 +87,81 @@ td:hover {background-color: yellow;}
 	padding-left: 5px;
 	border: 2px solid black;
 }
+
+
+@media only screen and (max-width: 1000px), (max-height: 700px) {
+	#gamearea {
+		width: 400px;
+		height: 350px;
+		margin-right: 10px;	
+	}
+	canvas {
+		image-rendering: -moz-crisp-edges;
+		image-rendering: -webkit-crisp-edges;
+		image-rendering: pixelated;
+		image-rendering: crisp-edges;
+		border: 2px solid black;
+		margin: auto;
+		width: 400px;
+		height: 350px;
+	}
+	#stats {
+		background-color: cornsilk;
+		width: 400px;
+		height: 250px;
+		display: inline-block;
+		cursor: default;
+		border: 2px solid black;
+	}
+	.hud {
+		float: left;
+	}
+	#info {
+		width: 300px;
+		height: 600px;
+		float: right;
+		padding-left: 5px;
+		border: 2px solid black;
+	}
+}
+
+@media only screen and (max-width: 715px) {
+	/* .page {
+		display: none;
+	}
+	#resolution_warn {
+		color: azure;
+		display: initial;
+	} */
+	#gamearea {
+		width: 300px;
+		height: 250px;
+		margin-right: 10px;	
+	}
+	canvas {
+		width: 300px;
+		height: 250px;
+	}
+	.profile {
+		display: none;
+	}
+	#stats {
+		background-color: cornsilk;
+		width: 300px;
+		height: 150px;
+		display: inline-block;
+		cursor: default;
+		border: 2px solid black;
+	}
+	.hud {
+		float: left;
+	}
+	#info {
+		width: 200px;
+		height: 400px;
+		float: right;
+		padding-left: 5px;
+		border: 2px solid black;
+	}
+}
+

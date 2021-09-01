@@ -14,7 +14,8 @@ TODO
 - reservar um commit para testar uma super classe gameobject kkk
 - camada das arvores (no Level.ts adicionar um bloco a mais de arvore por cima, pra evitar arvore na agua)
 - fazer os imports pelo amor de deus
-
+- olhar a parte de game states no video do js lá
+- fazer um dict com os blocos
 
 Plano:
 Tile  -> blocos lixo, mas pode ser colidivel (com a propriedade de onCollision) ou nao (ex: agua)
