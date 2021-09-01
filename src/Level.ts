@@ -18,6 +18,7 @@ class Level {
 			for (let j = 0; j < this.level[0].length; j++) {
 				let tile: number = this.level[i][j];
 				if (tile == 1) {
+					// water
 					let block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "blue");
 					block.addImage(WATER_BLOCK);
 					block.onCollisionEnter = () => {

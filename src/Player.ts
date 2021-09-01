@@ -21,6 +21,14 @@ class Player {
 		this.playerImage = new Image(PLAYER_SIZE, PLAYER_SIZE);
 		this.playerImage.src = "../images/profile.png";
 		this.isMoving = false;
+		
+		// this will make sure that the player won't spawn suffocated in a block
+		while (getTileAt(this.x, this.y, LEVEL_1) == 1) {
+			// todo: change this later
+			this.x = Math.floor(Math.random() * WORLD_WIDTH/2) + 200;
+			this.y = Math.floor(Math.random() * WORLD_HEIGHT/2) + 200;
+		}
+		console.log("achou uma posição boa na " + this.x + " " + this.y);
 	}
 
 
@@ -51,8 +59,8 @@ class Player {
 					this.x + (dx * 10) + PLAYER_SIZE > game.blocks[block].x &&
 					this.y + (dy * 10) < game.blocks[block].y + game.blocks[block].height &&
 					this.y + (dy * 10) + PLAYER_SIZE > game.blocks[block].y) {
-						game.blocks[block].onCollisionEnter();
-						return true;
+					game.blocks[block].onCollisionEnter();
+					return true;
 				}
 			}
 		}
@@ -62,10 +70,7 @@ class Player {
 	public update(deltaTime: number): void {
 
 		if (this.isMoving) statsManager.energyDecrease();
-		// let currentBlock: Block;
-		// for (let block = 0; block < game.blocks.length; block++) {
-		// 	currentBlock = game.blocks[block];
-		// }
+		
 		if (!this.isColliding(this.dx, this.dy)) {
 			this.vx = this.dx * PLAYER_SPEED;
 			this.vy = this.dy * PLAYER_SPEED;
@@ -98,5 +103,10 @@ class Player {
 	public render(ctx: CanvasRenderingContext2D): void {
 		ctx.fillStyle = "blue";
 		ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+	}
+
+	public setPosition(x: number, y: number) {
+		this.x = x;
+		this.y = y;
 	}
 }

@@ -8,6 +8,13 @@ var Player = /** @class */ (function () {
         this.playerImage = new Image(PLAYER_SIZE, PLAYER_SIZE);
         this.playerImage.src = "../images/profile.png";
         this.isMoving = false;
+        // this will make sure that the player won't spawn suffocated in a block
+        while (getTileAt(this.x, this.y, LEVEL_1) == 1) {
+            // todo: change this later
+            this.x = Math.floor(Math.random() * WORLD_WIDTH / 2) + 200;
+            this.y = Math.floor(Math.random() * WORLD_HEIGHT / 2) + 200;
+        }
+        console.log("achou uma posição boa na " + this.x + " " + this.y);
     }
     /**
     *
@@ -42,10 +49,6 @@ var Player = /** @class */ (function () {
     Player.prototype.update = function (deltaTime) {
         if (this.isMoving)
             statsManager.energyDecrease();
-        // let currentBlock: Block;
-        // for (let block = 0; block < game.blocks.length; block++) {
-        // 	currentBlock = game.blocks[block];
-        // }
         if (!this.isColliding(this.dx, this.dy)) {
             this.vx = this.dx * PLAYER_SPEED;
             this.vy = this.dy * PLAYER_SPEED;
@@ -73,6 +76,10 @@ var Player = /** @class */ (function () {
     Player.prototype.render = function (ctx) {
         ctx.fillStyle = "blue";
         ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+    };
+    Player.prototype.setPosition = function (x, y) {
+        this.x = x;
+        this.y = y;
     };
     return Player;
 }());

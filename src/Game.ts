@@ -18,7 +18,7 @@ class Game {
 		// instanciate stuff
 		this.grass = new Grass();
 		this.inputHandler = new InputHandler(this);
-		this.player = new Player(game, WORLD_WIDTH/2, WORLD_HEIGHT/2);
+		this.player = new Player(game, PLAYER_INITIAL_POSITION_X, PLAYER_INITIAL_POSITION_Y);
 		this.level = new Level(LEVEL_1);
 		this.blocks = this.level.buildLevel();
 
