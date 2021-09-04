@@ -9,18 +9,24 @@ class Dialog {
             this.next();
         });
     }
-    show(div) {
-        this.div = div;
+    show(divClass) {
+        this.div = document.createElement("DIV");
+        this.div.classList.add(divClass);
         this.div.style.display = "inherit";
         this.div.innerHTML = `
 			<p>${this.texts[this.currentText]}</p>
 		`;
         this.div.appendChild(this.btn);
+        document.getElementById('info').appendChild(this.div);
     }
     next() {
         if (this.texts[this.currentText + 1]) {
             this.currentText++;
-            this.show(this.div);
+            // this.show(this.div.className);
+            this.div.innerHTML = `
+				<p>${this.texts[this.currentText]}</p>
+			`;
+            this.div.appendChild(this.btn);
         }
         else {
             this.div.style.display = "none";

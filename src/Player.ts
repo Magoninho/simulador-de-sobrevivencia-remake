@@ -67,13 +67,13 @@ class Player {
 		return false;
 	}
 
-	public update(deltaTime: number): void {
+	public update(deltaTime): void {
 
 		if (this.isMoving) statsManager.energyDecrease();
 		
 		if (!this.isColliding(this.dx, this.dy)) {
-			this.vx = this.dx * PLAYER_SPEED;
-			this.vy = this.dy * PLAYER_SPEED;
+			this.vx = this.dx * PLAYER_SPEED * deltaTime;
+			this.vy = this.dy * PLAYER_SPEED * deltaTime;
 
 
 
@@ -101,7 +101,6 @@ class Player {
 	}
 
 	public render(ctx: CanvasRenderingContext2D): void {
-		ctx.fillStyle = "blue";
 		ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
 	}
 

@@ -16,20 +16,26 @@ class Dialog {
 		});
 	}
 
-	public show(div: HTMLDivElement) {
-		this.div = div;
+	public show(divClass: string) {
+		this.div = document.createElement("DIV") as HTMLDivElement;
+		this.div.classList.add(divClass);
 		this.div.style.display = "inherit";
 		this.div.innerHTML = `
 			<p>${this.texts[this.currentText]}</p>
 		`;
 		this.div.appendChild(this.btn);
+		document.getElementById('info').appendChild(this.div);
 
 	}
 
 	public next() {
 		if (this.texts[this.currentText + 1]) {
 			this.currentText++;
-			this.show(this.div);
+			// this.show(this.div.className);
+			this.div.innerHTML = `
+				<p>${this.texts[this.currentText]}</p>
+			`;
+			this.div.appendChild(this.btn);
 		} else {
 			this.div.style.display = "none";
 		}

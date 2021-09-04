@@ -50,8 +50,8 @@ class Player {
         if (this.isMoving)
             statsManager.energyDecrease();
         if (!this.isColliding(this.dx, this.dy)) {
-            this.vx = this.dx * PLAYER_SPEED;
-            this.vy = this.dy * PLAYER_SPEED;
+            this.vx = this.dx * PLAYER_SPEED * deltaTime;
+            this.vy = this.dy * PLAYER_SPEED * deltaTime;
             if (this.dx != 0 && this.dy != 0) {
                 this.vx /= 1.414;
                 this.vy /= 1.414;
@@ -74,7 +74,6 @@ class Player {
             this.y = this.game.level.getLevel().length * TILESIZE - PLAYER_SIZE;
     }
     render(ctx) {
-        ctx.fillStyle = "blue";
         ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
     }
     setPosition(x, y) {

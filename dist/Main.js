@@ -27,7 +27,7 @@ let tutorialDialogBox = new Dialog([
     "Seu objetivo é construir uma canoa para sair da ilha.",
     "Para isso, pegue madeira, mas cuidado pra não morrer no processo kkkk"
 ], ">>");
-tutorialDialogBox.show(tutorialDiv);
+tutorialDialogBox.show("dialogs");
 // dialogBox.show(dialogDiv);
 function lerp(v0, v1, t) {
     return (1 - t) * v0 + t * v1;

@@ -12,7 +12,6 @@ body {
 
 p, h2, h1 {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	
 }
 #resolution_warn {
 	display: none;
@@ -42,6 +41,7 @@ kbd {
 	background-color: lightgrey;
 	margin: 5px;
 	padding: 10px;
+	
 }
 
 table, th, td {
@@ -86,6 +86,8 @@ td:hover {background-color: yellow;}
 	float: right;
 	padding-left: 5px;
 	border: 2px solid black;
+	overflow-y: auto;
+	
 }
 
 
