@@ -1,11 +1,11 @@
-var seed = Date.now();
-var openSimplex = openSimplexNoise(seed);
-var zoom = 8;
+let seed = Date.now();
+const openSimplex = openSimplexNoise(seed);
+const zoom = 8;
 function generateMap(width, height) {
-    var map = [];
-    for (var y = 0; y < height; y++) {
+    let map = [];
+    for (let y = 0; y < height; y++) {
         map.push([]);
-        for (var x = 0; x < width; x++) {
+        for (let x = 0; x < width; x++) {
             map[y].push(Math.round(openSimplex.noise2D(x / zoom, y / zoom) + 2));
         }
     }

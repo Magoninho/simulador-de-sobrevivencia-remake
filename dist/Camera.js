@@ -1,11 +1,10 @@
-var Camera = /** @class */ (function () {
-    function Camera(target) {
+class Camera {
+    constructor(target) {
         this.target = target;
     }
     // apply(): number[] {
     // }
-    Camera.prototype.update = function () {
-    };
-    return Camera;
-}());
+    update() {
+    }
+}
 //# sourceMappingURL=Camera.js.map

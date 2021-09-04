@@ -1,5 +1,5 @@
-var Block = /** @class */ (function () {
-    function Block(x, y, width, height, color, collidable, rigid) {
+class Block {
+    constructor(x, y, width, height, color, collidable, rigid) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -8,23 +8,22 @@ var Block = /** @class */ (function () {
         this.rigid = rigid;
         this.color = color;
     }
-    Block.prototype.onCollisionEnter = function () {
+    onCollisionEnter() {
         new Dialog(["sexo"], "ok").show(dialogDiv);
-    };
-    Block.prototype.addImage = function (image) {
+    }
+    addImage(image) {
         this.image = image;
-    };
-    Block.prototype.update = function () {
-    };
-    Block.prototype.render = function (ctx) {
+    }
+    update() {
+    }
+    render(ctx) {
         if (this.image != undefined) {
             ctx.drawImage(this.image, this.x, this.y, this.width + 1, this.height + 1);
         }
         else {
-            ctx.fillStyle = "" + this.color;
+            ctx.fillStyle = `${this.color}`;
             ctx.fillRect(this.x, this.y, this.width + 1, this.height + 1);
         }
-    };
-    return Block;
-}());
+    }
+}
 //# sourceMappingURL=Block.js.map

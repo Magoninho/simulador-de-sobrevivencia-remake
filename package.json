@@ -1,0 +1,19 @@
+{
+  "name": "simulador_de_sobrevivencia_remake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/Main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Magoninho/simulador-de-sobrevivencia-remake.git"
+  },
+  "author": "Magoninho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Magoninho/simulador-de-sobrevivencia-remake/issues"
+  },
+  "homepage": "https://github.com/Magoninho/simulador-de-sobrevivencia-remake#readme"
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"GraphicsLoader.js","sourceRoot":"","sources":["../src/GraphicsLoader.ts"],"names":[],"mappings":"AAAA;IAEC;IAEA,CAAC;IAEM,qCAAY,GAAnB,UAAoB,WAAmB;QACtC,IAAI,KAAK,GAAqB,IAAI,KAAK,CAAC,GAAG,EAAE,GAAG,CAAC,CAAC;QAClD,KAAK,CAAC,GAAG,GAAG,WAAW,CAAC;QAExB,OAAO,KAAK,CAAC;IACd,CAAC;IACF,qBAAC;AAAD,CAAC,AAZD,IAYC"}

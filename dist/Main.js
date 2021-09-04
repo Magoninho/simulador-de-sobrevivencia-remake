@@ -1,6 +1,6 @@
-var canvas = document.getElementById("gamecanvas");
-var ctx = canvas.getContext('2d');
-var game = new Game();
+const canvas = document.getElementById("gamecanvas");
+const ctx = canvas.getContext('2d');
+let game = new Game();
 game.start();
 // let pName = document.createElement('P');
 // game.player.name = window.prompt("Qual o nome do seu jogador? (Máx: 10)");
@@ -11,17 +11,17 @@ game.start();
 // }
 // pName.innerHTML = game.player.name;
 // document.getElementById("profile").appendChild(pName);
-var statsManager = new StatsManager();
+let statsManager = new StatsManager();
 statsManager.hungryDecrease();
 statsManager.thirstDecrease();
 statsManager.cagarDecrease();
 statsManager.energyDecrease();
 generateMap(10, 10);
-var dialogDiv = document.getElementById('dialogDiv');
-var tutorialDiv = document.getElementById('tutorial');
+let dialogDiv = document.getElementById('dialogDiv');
+let tutorialDiv = document.getElementById('tutorial');
 // let dialogBox = new Dialog(["testando dialogo foda", "frase 2 omg"], "ok fodase.");
-var tutorialDialogBox = new Dialog([
-    "Ol\u00E1, " + game.player.name + ".",
+let tutorialDialogBox = new Dialog([
+    `Olá, ${game.player.name}.`,
     "Bem vindo ao Simulador de Sobrevivência Remake!",
     "Use <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> para controlar o personagem...",
     "Seu objetivo é construir uma canoa para sair da ilha.",
@@ -33,11 +33,11 @@ function lerp(v0, v1, t) {
     return (1 - t) * v0 + t * v1;
 }
 // TODO: organize the camera thing
-var cameraX = -game.player.x + GAME_WIDTH / 2;
-var cameraY = -game.player.y + GAME_HEIGHT / 2;
-var lastTime = 0;
+let cameraX = -game.player.x + GAME_WIDTH / 2;
+let cameraY = -game.player.y + GAME_HEIGHT / 2;
+let lastTime = 0;
 function gameLoop(timestamp) {
-    var deltaTime = timestamp - lastTime;
+    let deltaTime = timestamp - lastTime;
     lastTime = timestamp;
     ctx.save();
     ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);

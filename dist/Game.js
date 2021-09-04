@@ -1,7 +1,7 @@
-var Game = /** @class */ (function () {
-    function Game() {
+class Game {
+    constructor() {
     }
-    Game.prototype.start = function () {
+    start() {
         // instanciate stuff
         this.grass = new Grass();
         this.inputHandler = new InputHandler(this);
@@ -11,20 +11,19 @@ var Game = /** @class */ (function () {
         this.mobList = [
             new Canguru(Math.floor(Math.random() * WORLD_WIDTH - 200) + 200, WORLD_HEIGHT - 200, 200, 100)
         ];
-    };
-    Game.prototype.update = function (deltaTime) {
+    }
+    update(deltaTime) {
         this.player.update(deltaTime);
         this.mobList[0].update();
-    };
-    Game.prototype.render = function (ctx) {
+    }
+    render(ctx) {
         this.grass.render(ctx);
-        for (var blockIndex = 0; blockIndex < this.blocks.length; blockIndex++) {
-            var block = this.blocks[blockIndex];
+        for (let blockIndex = 0; blockIndex < this.blocks.length; blockIndex++) {
+            const block = this.blocks[blockIndex];
             block.render(ctx);
         }
         this.mobList[0].render(ctx);
         this.player.render(ctx);
-    };
-    return Game;
-}());
+    }
+}
 //# sourceMappingURL=Game.js.map

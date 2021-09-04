@@ -5,6 +5,6 @@ class Canguru extends Mob {
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.image = CANGURU_SPRITE;
+		this.image = new GraphicsLoader().loadGraphics('../images/canguru.png');
 	}
 }

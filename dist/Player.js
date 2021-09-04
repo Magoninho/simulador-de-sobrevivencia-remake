@@ -1,5 +1,5 @@
-var Player = /** @class */ (function () {
-    function Player(game, x, y) {
+class Player {
+    constructor(game, x, y) {
         this.x = x;
         this.y = y;
         this.dx = 0;
@@ -22,18 +22,18 @@ var Player = /** @class */ (function () {
     * @param {number} dy - y direction (-1, 0, 1)
     *
     */
-    Player.prototype.move = function (dx, dy) {
+    move(dx, dy) {
         this.dx = dx;
         this.dy = dy;
-    };
-    Player.prototype.stop = function () {
+    }
+    stop() {
         this.dx = 0;
         this.dy = 0;
-    };
+    }
     // TODO: fazer um array com walls e um loop pra testar colisão com cada um dentro dessa função
     // TODO: renomear para isCollidingWithWalls pra fazer sentido essa alteração
-    Player.prototype.isColliding = function (dx, dy) {
-        for (var block = 0; block < game.blocks.length; block++) {
+    isColliding(dx, dy) {
+        for (let block = 0; block < game.blocks.length; block++) {
             if (game.blocks[block].collidable) {
                 if (this.x + (dx * 10) < game.blocks[block].x + game.blocks[block].width &&
                     this.x + (dx * 10) + PLAYER_SIZE > game.blocks[block].x &&
@@ -45,8 +45,8 @@ var Player = /** @class */ (function () {
             }
         }
         return false;
-    };
-    Player.prototype.update = function (deltaTime) {
+    }
+    update(deltaTime) {
         if (this.isMoving)
             statsManager.energyDecrease();
         if (!this.isColliding(this.dx, this.dy)) {
@@ -72,15 +72,14 @@ var Player = /** @class */ (function () {
             this.y = 0;
         if (this.y > this.game.level.getLevel().length * TILESIZE - PLAYER_SIZE)
             this.y = this.game.level.getLevel().length * TILESIZE - PLAYER_SIZE;
-    };
-    Player.prototype.render = function (ctx) {
+    }
+    render(ctx) {
         ctx.fillStyle = "blue";
         ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
-    };
-    Player.prototype.setPosition = function (x, y) {
+    }
+    setPosition(x, y) {
         this.x = x;
         this.y = y;
-    };
-    return Player;
-}());
+    }
+}
 //# sourceMappingURL=Player.js.map

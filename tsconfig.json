@@ -1,15 +1,15 @@
 {
 	"compilerOptions": {
-		"target": "ES5",
+		"target": "es6",
 		"sourceMap": true,
 		"rootDir": "./src/",
 		"outDir": "./dist/",
 		"lib": [
-			"es5",
+			"es6",
 			"dom"
 		],
 		"watch": true,
 		"noUnusedLocals": true,
-		"module": "commonjs"
+		"module": "es2015"
 	}
 }

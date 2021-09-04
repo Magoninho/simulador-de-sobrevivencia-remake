@@ -87,27 +87,27 @@
 // 	}
 // }
 // New input handler by @YohananDiamond thx :)
-var InputHandler = /** @class */ (function () {
-    function InputHandler(game) {
-        var down_handlers = new Map();
-        down_handlers['w'] = function () {
+class InputHandler {
+    constructor(game) {
+        const down_handlers = new Map();
+        down_handlers['w'] = () => {
             game.player.dy = -1;
             game.player.isMoving = true;
         };
-        down_handlers['s'] = function () {
+        down_handlers['s'] = () => {
             game.player.dy = 1;
             game.player.isMoving = true;
         };
-        down_handlers['a'] = function () {
+        down_handlers['a'] = () => {
             game.player.dx = -1;
             game.player.isMoving = true;
         };
-        down_handlers['d'] = function () {
+        down_handlers['d'] = () => {
             game.player.dx = 1;
             game.player.isMoving = true;
         };
-        var up_handlers = new Map();
-        up_handlers['w'] = function () {
+        const up_handlers = new Map();
+        up_handlers['w'] = () => {
             if (game.player.dy == -1) {
                 game.player.dy = 0;
                 if (game.player.dx == 0) {
@@ -115,7 +115,7 @@ var InputHandler = /** @class */ (function () {
                 }
             }
         };
-        up_handlers['s'] = function () {
+        up_handlers['s'] = () => {
             if (game.player.dy == 1) {
                 game.player.dy = 0;
                 if (game.player.dx == 0) {
@@ -123,7 +123,7 @@ var InputHandler = /** @class */ (function () {
                 }
             }
         };
-        up_handlers['a'] = function () {
+        up_handlers['a'] = () => {
             if (game.player.dx == -1) {
                 game.player.dx = 0;
                 if (game.player.dy == 0) {
@@ -131,7 +131,7 @@ var InputHandler = /** @class */ (function () {
                 }
             }
         };
-        up_handlers['d'] = function () {
+        up_handlers['d'] = () => {
             if (game.player.dx == 1) {
                 game.player.dx = 0;
                 if (game.player.dy == 0) {
@@ -139,17 +139,16 @@ var InputHandler = /** @class */ (function () {
                 }
             }
         };
-        document.addEventListener('keydown', function (event) {
-            var handler = down_handlers[event.key.toLowerCase()];
+        document.addEventListener('keydown', event => {
+            const handler = down_handlers[event.key.toLowerCase()];
             if (handler != undefined)
                 handler();
         });
-        document.addEventListener('keyup', function (event) {
-            var handler = up_handlers[event.key.toLowerCase()];
+        document.addEventListener('keyup', event => {
+            const handler = up_handlers[event.key.toLowerCase()];
             if (handler != undefined)
                 handler();
         });
     }
-    return InputHandler;
-}());
+}
 //# sourceMappingURL=InputHandler.js.map

@@ -1,22 +1,23 @@
-var Dialog = /** @class */ (function () {
-    function Dialog(texts, buttonText) {
-        var _this = this;
+class Dialog {
+    constructor(texts, buttonText) {
         this.currentText = 0;
         this.texts = texts;
         this.buttonText = buttonText;
         this.btn = document.createElement("BUTTON");
         this.btn.innerHTML = this.buttonText;
-        this.btn.addEventListener("click", function () {
-            _this.next();
+        this.btn.addEventListener("click", () => {
+            this.next();
         });
     }
-    Dialog.prototype.show = function (div) {
+    show(div) {
         this.div = div;
         this.div.style.display = "inherit";
-        this.div.innerHTML = "\n\t\t\t<p>" + this.texts[this.currentText] + "</p>\n\t\t";
+        this.div.innerHTML = `
+			<p>${this.texts[this.currentText]}</p>
+		`;
         this.div.appendChild(this.btn);
-    };
-    Dialog.prototype.next = function () {
+    }
+    next() {
         if (this.texts[this.currentText + 1]) {
             this.currentText++;
             this.show(this.div);
@@ -24,7 +25,6 @@ var Dialog = /** @class */ (function () {
         else {
             this.div.style.display = "none";
         }
-    };
-    return Dialog;
-}());
+    }
+}
 //# sourceMappingURL=Dialog.js.map
