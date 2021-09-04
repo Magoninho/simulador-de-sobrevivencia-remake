@@ -41,7 +41,7 @@ let tutorialDialogBox = new Dialog([
 
 ], ">>");
 
-tutorialDialogBox.show(tutorialDiv);
+tutorialDialogBox.show("dialogs");
 // dialogBox.show(dialogDiv);
 
 function lerp(v0: number, v1: number, t: number): number {
