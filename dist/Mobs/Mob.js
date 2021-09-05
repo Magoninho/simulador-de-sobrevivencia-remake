@@ -1,5 +1,6 @@
-class Mob {
+class Mob extends GameObject {
     constructor(x, y, width, height, image) {
+        super(x, y);
         this.x = x;
         this.y = y;
         this.width = width;

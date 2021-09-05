@@ -35,6 +35,7 @@ class Game {
 		for (let mob = 0; mob < this.mobList.length; mob++) {
 			if (this.mobList[mob].defeated) {
 				if (mob > -1) {
+					// removing the mob from the array if defeated
 					this.mobList.splice(mob, 1);
 				}
 				continue;

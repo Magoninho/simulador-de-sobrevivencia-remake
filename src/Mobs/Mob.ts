@@ -1,4 +1,4 @@
-class Mob {
+class Mob extends GameObject {
 	x: number;
 	y: number;
 	width: number;
@@ -9,6 +9,7 @@ class Mob {
 	dialog: Dialog;
 
 	constructor(x: number, y: number, width: number, height: number, image?: HTMLImageElement) {
+		super(x, y);
 		this.x = x;
 		this.y = y;
 		this.width = width;
