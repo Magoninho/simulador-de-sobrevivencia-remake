@@ -44,21 +44,21 @@ class StatsManager {
         this.energy -= 0.02;
         this.update();
     }
-    hungryIncrease(value) {
+    hungryIncrease() {
         if (this.hungry < 100)
-            this.hungry += value;
+            this.hungry++;
     }
-    thirstIncrease(value) {
+    thirstIncrease() {
         if (this.thirst < 100)
-            this.thirst += value;
+            this.thirst++;
     }
-    cagarIncrease(value) {
+    cagarIncrease() {
         if (this.cagar < 100)
-            this.cagar += value;
+            this.cagar++;
     }
-    energyIncrease(value) {
+    energyIncrease() {
         if (this.energy < 100)
-            this.energy += value;
+            this.energy++;
     }
 }
 //# sourceMappingURL=Stats.js.map

@@ -15,7 +15,7 @@ class Level {
                     // water
                     let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, WATER_BLOCK);
                     temp.onCollisionEnter = () => {
-                        statsManager.thirstIncrease(0.1);
+                        statsManager.thirstIncrease();
                         let drink_audio = document.getElementById("drink_audio");
                         if (statsManager.thirst < 100)
                             drink_audio.play();
@@ -28,8 +28,10 @@ class Level {
                     this.blocks.push(temp);
                 }
                 else if (tile == 3) {
-                    let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, DIRT_BLOCK);
-                    this.blocks.push(temp);
+                    let tempGrass = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, GRASS_BLOCK);
+                    this.blocks.push(tempGrass);
+                    let tempTree = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, TREE_BLOCK);
+                    this.blocks.push(tempTree);
                 }
             }
         }

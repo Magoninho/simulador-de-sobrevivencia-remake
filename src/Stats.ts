@@ -61,20 +61,20 @@ class StatsManager {
 	}
 
 
-	public hungryIncrease(value: number) {
+	public hungryIncrease() {
 		if (this.hungry < 100)
-			this.hungry += value;
+			this.hungry++;
 	}
-	public thirstIncrease(value: number) {
+	public thirstIncrease() {
 		if (this.thirst < 100)
-			this.thirst += value;
+			this.thirst++;
 	}
-	public cagarIncrease(value: number) {
+	public cagarIncrease() {
 		if (this.cagar < 100)
-			this.cagar += value;
+			this.cagar++;
 	}
-	public energyIncrease(value: number) {
+	public energyIncrease() {
 		if (this.energy < 100)
-			this.energy += value;
+			this.energy++;
 	}
 }

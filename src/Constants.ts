@@ -2,7 +2,7 @@ const GAME_WIDTH = 600;
 const GAME_HEIGHT = 500;
 
 
-const TILESIZE = 32;
+const TILESIZE = 48;
 
 const LEVEL_1: number[][] = generateMap(60, 60);
 
@@ -28,6 +28,7 @@ const SAND_BLOCK = document.getElementById('sand_block') as HTMLImageElement;
 const STONE_BLOCK = document.getElementById('stone_block') as HTMLImageElement;
 const DIRT_BLOCK = document.getElementById('dirt_block') as HTMLImageElement;
 const WATER_BLOCK = document.getElementById('water_block') as HTMLImageElement;
+const TREE_BLOCK = document.getElementById('tree_block') as HTMLImageElement;
 
 const CANGURU_SPRITE = document.getElementById('canguru_sprite') as HTMLImageElement;
 

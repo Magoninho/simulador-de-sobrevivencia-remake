@@ -1,5 +1,7 @@
-let seed = Date.now();
+let seed = 1630885390492;
 const openSimplex = openSimplexNoise(seed);
+console.log(seed);
+
 const zoom = 8;
 
 function generateMap(width: number, height: number): number[][] {
