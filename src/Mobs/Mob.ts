@@ -4,6 +4,7 @@ class Mob {
 	width: number;
 	height: number;
 	image: HTMLImageElement;
+	defeated: boolean;
 
 	dialog: Dialog;
 

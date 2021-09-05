@@ -33,6 +33,13 @@ class Game {
 	update(deltaTime) {
 		this.player.update(deltaTime);
 		for (let mob = 0; mob < this.mobList.length; mob++) {
+			if (this.mobList[mob].defeated) {
+				if (mob > -1) {
+					this.mobList.splice(mob, 1);
+				}
+				continue;
+			}
+
 			this.mobList[mob].update();
 		}
 	}
