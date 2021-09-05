@@ -6,5 +6,10 @@ class Canguru extends Mob {
 		this.width = width;
 		this.height = height;
 		this.image = new GraphicsLoader().loadGraphics('../images/canguru.png');
+		this.dialog = new Dialog(["voce encostou num canguru foda"], "ok");
+	}
+
+	public onCollisionEnter() {
+		this.dialog.show("dialogs");
 	}
 }

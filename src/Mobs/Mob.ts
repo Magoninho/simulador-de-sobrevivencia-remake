@@ -5,6 +5,8 @@ class Mob {
 	height: number;
 	image: HTMLImageElement;
 
+	dialog: Dialog;
+
 	constructor(x: number, y: number, width: number, height: number, image?: HTMLImageElement) {
 		this.x = x;
 		this.y = y;
@@ -24,5 +26,10 @@ class Mob {
 			ctx.fillStyle = "purple";
 			ctx.fillRect(this.x, this.y, this.width + 1, this.height + 1);
 		}
+	}
+
+	public onCollisionEnter() {
+		this.dialog = new Dialog(["voce encostou num mob qualquer"], "ok");
+		this.dialog.show("dialogs");
 	}
 }

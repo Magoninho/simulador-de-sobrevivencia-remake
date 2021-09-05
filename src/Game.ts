@@ -5,7 +5,7 @@ class Game {
 	inputHandler: InputHandler;
 	player: Player;
 	level: Level;
-	blocks: Block[];
+	blocks: Tile[];
 	mobList: Mob[];
 
 	testeMob: TesteMob;
@@ -23,7 +23,8 @@ class Game {
 		this.blocks = this.level.buildLevel();
 
 		this.mobList = [
-			new Canguru(Math.floor(Math.random() * WORLD_WIDTH-200) + 200, WORLD_HEIGHT-200, 200, 100)
+			new Canguru(Math.floor(Math.random() * WORLD_WIDTH-200) + 200, WORLD_HEIGHT-200, 200, 100),
+			new Canguru(200, 100, 200, 100)
 		];
 		
 
@@ -31,7 +32,9 @@ class Game {
 
 	update(deltaTime) {
 		this.player.update(deltaTime);
-		this.mobList[0].update();
+		for (let mob = 0; mob < this.mobList.length; mob++) {
+			this.mobList[mob].update();
+		}
 	}
 
 	render(ctx) {
@@ -41,7 +44,9 @@ class Game {
 			const block = this.blocks[blockIndex];
 			block.render(ctx);
 		}
-		this.mobList[0].render(ctx);
+		for (let mob = 0; mob < this.mobList.length; mob++) {
+			this.mobList[mob].render(ctx);
+		}
 		this.player.render(ctx);
 	}
 }

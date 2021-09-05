@@ -1,13 +1,13 @@
 class Level {
 	level: number[][];
-	blocks: Block[];
+	blocks: Tile[];
 
 	constructor(level: number[][]) {
 		this.level = level;
 		this.blocks = [];
 	}
 
-	public buildLevel(): Block[] {
+	public buildLevel(): Tile[] {
 		// let blocks = []
 		// do stuff
 		// return blocks
@@ -19,24 +19,15 @@ class Level {
 				let tile: number = this.level[i][j];
 				if (tile == 1) {
 					// water
-					let block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "blue");
-					block.addImage(WATER_BLOCK);
-					block.onCollisionEnter = () => {
-						new Dialog(["vose bebe aqua"], "ok").show(dialogDiv);
-						let audio: HTMLAudioElement = document.getElementById('popup') as HTMLAudioElement;
-						audio.play();
-						
-					};
-					this.blocks.push(block);
+					let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, WATER_BLOCK);
+					this.blocks.push(temp);
 				} else if (tile == 2) {
 					// grass
-					let block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "green");
-					block.addImage(GRASS_BLOCK);
-					this.blocks.push(block);
+					let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, GRASS_BLOCK);
+					this.blocks.push(temp);
 				} else if (tile == 3) {
-					let block = new Block(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, "green");
-					block.addImage(DIRT_BLOCK);
-					this.blocks.push(block);
+					let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, DIRT_BLOCK);
+					this.blocks.push(temp);
 				}
 			}
 		}

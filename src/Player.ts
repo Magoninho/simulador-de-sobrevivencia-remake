@@ -53,15 +53,15 @@ class Player {
 	// TODO: renomear para isCollidingWithWalls pra fazer sentido essa alteração
 
 	private isColliding(dx: number, dy: number): boolean { // um grupo talvez?
-		for (let block = 0; block < game.blocks.length; block++) {
-			if (game.blocks[block].collidable) {
-				if (this.x + (dx * 10) < game.blocks[block].x + game.blocks[block].width &&
-					this.x + (dx * 10) + PLAYER_SIZE > game.blocks[block].x &&
-					this.y + (dy * 10) < game.blocks[block].y + game.blocks[block].height &&
-					this.y + (dy * 10) + PLAYER_SIZE > game.blocks[block].y) {
-					game.blocks[block].onCollisionEnter();
+		for (let index = 0; index < game.mobList.length; index++) {
+			// if (game.mobList[index]) {
+				if (this.x + (dx * 10) < game.mobList[index].x + game.mobList[index].width &&
+					this.x + (dx * 10) + PLAYER_SIZE > game.mobList[index].x &&
+					this.y + (dy * 10) < game.mobList[index].y + game.mobList[index].height &&
+					this.y + (dy * 10) + PLAYER_SIZE > game.mobList[index].y) {
+					game.mobList[index].onCollisionEnter();
 					return true;
-				}
+				// }
 			}
 		}
 		return false;

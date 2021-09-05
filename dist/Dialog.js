@@ -8,9 +8,9 @@ class Dialog {
         this.btn.addEventListener("click", () => {
             this.next();
         });
+        this.div = document.createElement("DIV");
     }
     show(divClass) {
-        this.div = document.createElement("DIV");
         this.div.classList.add(divClass);
         this.div.style.display = "inherit";
         this.div.innerHTML = `

@@ -4,12 +4,10 @@ class Block {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.collidable = collidable;
-        this.rigid = rigid;
         this.color = color;
     }
     onCollisionEnter() {
-        new Dialog(["sexo"], "ok").show(dialogDiv);
+        // new Dialog(["sexo"], "ok").show("dialog");
     }
     addImage(image) {
         this.image = image;
