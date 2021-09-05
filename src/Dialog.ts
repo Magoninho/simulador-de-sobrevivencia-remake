@@ -14,10 +14,10 @@ class Dialog {
 		this.btn.addEventListener("click", () => {
 			this.next();
 		});
+		this.div = document.createElement("DIV") as HTMLDivElement;
 	}
 
 	public show(divClass: string) {
-		this.div = document.createElement("DIV") as HTMLDivElement;
 		this.div.classList.add(divClass);
 		this.div.style.display = "inherit";
 		this.div.innerHTML = `
