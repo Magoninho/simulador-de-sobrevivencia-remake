@@ -15,6 +15,9 @@ class Tile {
 		this.image = image;
 	}
 
+	public onCollisionEnter() {
+	}
+
 	render(ctx): void {
 		if (this.image != undefined) {
 			ctx.drawImage(this.image, this.x, this.y, this.width + 1, this.height + 1);

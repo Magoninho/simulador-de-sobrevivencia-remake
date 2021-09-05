@@ -7,6 +7,8 @@ class Tile {
         this.color = "purple"; // the default color if no texture provided
         this.image = image;
     }
+    onCollisionEnter() {
+    }
     render(ctx) {
         if (this.image != undefined) {
             ctx.drawImage(this.image, this.x, this.y, this.width + 1, this.height + 1);

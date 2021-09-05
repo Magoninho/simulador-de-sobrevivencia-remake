@@ -25,6 +25,7 @@ class Game {
             }
             this.mobList[mob].update();
         }
+        statsManager.update();
     }
     render(ctx) {
         this.grass.render(ctx);

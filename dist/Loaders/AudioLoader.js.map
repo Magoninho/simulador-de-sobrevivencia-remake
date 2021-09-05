@@ -1,0 +1,1 @@
+{"version":3,"file":"AudioLoader.js","sourceRoot":"","sources":["../../src/Loaders/AudioLoader.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW;IAChB;IAEA,CAAC;IAEM,SAAS,CAAC,QAAgB;QAChC,IAAI,KAAK,GAAG,IAAI,KAAK,CAAC,QAAQ,CAAC,CAAC;QAChC,OAAO,KAAK,CAAC;IACd,CAAC;CACD"}

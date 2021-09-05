@@ -52,14 +52,29 @@ class Player {
 	// TODO: fazer um array com walls e um loop pra testar colisão com cada um dentro dessa função
 	// TODO: renomear para isCollidingWithWalls pra fazer sentido essa alteração
 
-	private isColliding(dx: number, dy: number): boolean { // um grupo talvez?
-		for (let index = 0; index < game.mobList.length; index++) {
-			// if (game.mobList[index]) {
-				if (this.x + (dx * 10) < game.mobList[index].x + game.mobList[index].width &&
-					this.x + (dx * 10) + PLAYER_SIZE > game.mobList[index].x &&
-					this.y + (dy * 10) < game.mobList[index].y + game.mobList[index].height &&
-					this.y + (dy * 10) + PLAYER_SIZE > game.mobList[index].y) {
-					game.mobList[index].onCollisionEnter();
+	private isCollidingWithMob(arr: Mob[]): boolean {
+		for (let index = 0; index < arr.length; index++) {
+			// if (arr[index]) {
+				if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
+					this.x + (this.dx * 10) + PLAYER_SIZE > arr[index].x &&
+					this.y + (this.dy * 10) < arr[index].y + arr[index].height &&
+					this.y + (this.dy * 10) + PLAYER_SIZE > arr[index].y) {
+					arr[index].onCollisionEnter();
+					return true;
+				// }
+			}
+		}
+		return false;
+	}
+
+	private applyTileCollisions(arr: Tile[]): boolean {
+		for (let index = 0; index < arr.length; index++) {
+			// if (arr[index]) {
+				if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
+					this.x + (this.dx * 10) + PLAYER_SIZE > arr[index].x &&
+					this.y + (this.dy * 10) < arr[index].y + arr[index].height &&
+					this.y + (this.dy * 10) + PLAYER_SIZE > arr[index].y) {
+					arr[index].onCollisionEnter();
 					return true;
 				// }
 			}
@@ -71,7 +86,7 @@ class Player {
 
 		if (this.isMoving) statsManager.energyDecrease();
 		
-		if (!this.isColliding(this.dx, this.dy)) {
+		if (!this.isCollidingWithMob(game.mobList)) {
 			this.vx = this.dx * PLAYER_SPEED * deltaTime;
 			this.vy = this.dy * PLAYER_SPEED * deltaTime;
 
@@ -83,11 +98,12 @@ class Player {
 			}
 			this.x += this.vx;
 			this.y += this.vy;
-		} else {
-			// new Dialog([`${}`], "ok").show(dialogDiv);
-		}
 
-		// }
+
+			// this will check collisions with tiles that have collision functions defined
+			this.applyTileCollisions(game.blocks);	
+
+		}
 
 
 

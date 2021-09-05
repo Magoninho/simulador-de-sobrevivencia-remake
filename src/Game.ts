@@ -43,6 +43,8 @@ class Game {
 
 			this.mobList[mob].update();
 		}
+
+		statsManager.update();
 	}
 
 	render(ctx) {

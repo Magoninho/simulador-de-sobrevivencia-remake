@@ -14,6 +14,12 @@ class Level {
                 if (tile == 1) {
                     // water
                     let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, WATER_BLOCK);
+                    temp.onCollisionEnter = () => {
+                        statsManager.thirstIncrease(0.1);
+                        let drink_audio = document.getElementById("drink_audio");
+                        if (statsManager.thirst < 100)
+                            drink_audio.play();
+                    };
                     this.blocks.push(temp);
                 }
                 else if (tile == 2) {
