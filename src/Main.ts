@@ -6,40 +6,30 @@ const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 let game: Game = new Game();
 game.start();
 
+let popup = new PopUp().popUp('esse jogo ainda tá em fase de desenvolvimento<br>tem 2 cangurus no mapa<br>voce pode beber aqua<br>ignora a mensagem que aparece quando voce encosta na arvore, não vai ser assim o sistema de coleta de madeira pode ficar tranquilo<br>eu provavelmente vou tentar fazer um sistema de coleta usando o mouse mesmo, vai ser bem simples (não de fazer, mas como funciona kk)', () => {
+	
+	// WARNING: THIS IS TEMPORARY
 
-// game.player.setPosition(0, 0);
-// let pName = document.createElement('P');
-// game.player.name = window.prompt("Qual o nome do seu jogador? (Máx: 10)");
-// if (!game.player.name) {
-// 	game.player.name = "Gustavo";
-// } else {
-// 	game.player.name = game.player.name.substring(0, 10);
-// }
-// pName.innerHTML = game.player.name;
+	let theme: HTMLAudioElement = document.getElementById('theme1') as HTMLAudioElement; // TODO: Make a class for audio
+	theme.play();
+	theme.addEventListener('ended', () => {
+		document.getElementById('theme3').play();
+	});
+});
 
-// document.getElementById("profile").appendChild(pName);
-
+// TODO: MOVE THIS TO THE GAME CLASS
 let statsManager = new StatsManager();
 statsManager.hungryDecrease();
 statsManager.thirstDecrease();
 statsManager.cagarDecrease();
 statsManager.energyDecrease();
 
-generateMap(10, 10);
 
 let dialogDiv = document.getElementById('dialogDiv') as HTMLDivElement;
 let tutorialDiv = document.getElementById('tutorial') as HTMLDivElement;
 
 
-new PopUp().popUp('Você está preso na ilha. Colete madeiras pra construir uma canoa. Não fique exausto. Mantenha-se sempre hidratado. Cague.', () => {
 
-	// WARNING: THIS IS TEMPORARY
-	let theme: HTMLAudioElement = document.getElementById('theme1') as HTMLAudioElement; // TODO: Make a class for audio
-	theme.play();
-	theme.addEventListener('ended', () => {
-		document.getElementById('theme3').play();
-	});
-})
 let tutorialDialogBox = new Dialog([
 	`Olá, ${game.player.name}.`,
 	"Bem vindo ao Simulador de Sobrevivência Remake!", 

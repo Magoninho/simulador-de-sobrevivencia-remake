@@ -24,6 +24,7 @@ canvas {
 	image-rendering: crisp-edges;
 	border: 2px solid black;
 	margin: auto;
+	/* background-color: aliceblue; */
 }
 
 kbd {
@@ -36,6 +37,8 @@ kbd {
 	width: 80%; 
 	float: right;
 }
+
+
 
 .dialogs {
 	background-color: lightgrey;
