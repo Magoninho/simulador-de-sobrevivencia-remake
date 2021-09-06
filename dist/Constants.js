@@ -5,7 +5,7 @@ const LEVEL_1 = generateMap(60, 60);
 const WORLD_WIDTH = LEVEL_1[0].length * TILESIZE;
 const WORLD_HEIGHT = LEVEL_1.length * TILESIZE;
 // Player information
-const PLAYER_SIZE = 32;
+const PLAYER_SIZE = 38;
 const PLAYER_SPEED = 0.4;
 const PLAYER_INITIAL_POSITION_X = WORLD_WIDTH / 2;
 const PLAYER_INITIAL_POSITION_Y = WORLD_HEIGHT / 2;
