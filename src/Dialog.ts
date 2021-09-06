@@ -52,7 +52,6 @@ class Dialog {
 	}
 
 	public onConfirm() {
-		alert("cool");
 	}
 
 	public next() {
