@@ -1,21 +1,10 @@
 TODO
 
-- esquema de distancias pra interação com dialogo
 - adicionar funções de onSlaOqFinishes no Stats pra fazer coisa acontecer
-- colocar mais tipagem
 - comentar
 - player nadando
-- recolocar o prompt
-- adicionar funções add para stats e fazer com que elas não permitam que ultrapasse
-- dialogos em cascata
-- assistir o video de rpg com pygame pra ver conceitos
-- melhorar o sistema de blocks, com herança talvez pra melhorar a agua
 - organizar os arquivos em pastas
-- reservar um commit para testar uma super classe gameobject kkk
-- camada das arvores (no Level.ts adicionar um bloco a mais de arvore por cima, pra evitar arvore na agua)
-- fazer os imports pelo amor de deus
 - olhar a parte de game states no video do js lá
-- fazer um dict com os blocos
 
 Plano:
 Tile  -> blocos lixo, mas pode ser colidivel (com a propriedade de onCollision) ou nao (ex: agua)
