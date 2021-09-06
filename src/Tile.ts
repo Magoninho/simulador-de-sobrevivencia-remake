@@ -5,14 +5,16 @@ class Tile {
 	height: number;
 	color: string;
 	image: HTMLImageElement;
+	rigid: boolean;
 
-	constructor(x: number, y: number, width: number, height: number, image?: HTMLImageElement) {
+	constructor(x: number, y: number, width: number, height: number, rigid: boolean, image?: HTMLImageElement) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.color = "purple"; // the default color if no texture provided
 		this.image = image;
+		this.rigid = rigid;
 	}
 
 	public onCollisionEnter() {
