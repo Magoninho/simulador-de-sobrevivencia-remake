@@ -37,7 +37,6 @@ class Dialog {
         document.getElementById('info').appendChild(this.div);
     }
     onConfirm() {
-        alert("cool");
     }
     next() {
         if (this.texts[this.currentText + 1]) {
