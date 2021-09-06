@@ -36,7 +36,7 @@ class Level {
 					this.blocks.push(tempGrass);
 					let tempTree = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, true, TREE_BLOCK);
 					tempTree.onCollisionEnter = () => {
-						console.log("madeirakkk");
+						new Dialog(["voce pega madeira kkk"], "ok massa").show("dialogs");
 					};
 					this.blocks.push(tempTree);
 				}
