@@ -36,7 +36,7 @@ class StatsManager {
 				this.hungry--;
 				this.update();
 			}
-		}, 2000);
+		}, 1000);
 
 	}
 	thirstDecrease(): void {
@@ -45,7 +45,7 @@ class StatsManager {
 				this.thirst--;
 				this.update();
 			}
-		}, 2000);
+		}, 1000);
 	}
 	cagarDecrease(): void {
 		setInterval(() => {
@@ -53,7 +53,7 @@ class StatsManager {
 				this.cagar--;
 				this.update();
 			}
-		}, 10000);
+		}, 6000);
 	}
 	energyDecrease(): void {
 		this.energy -= 0.02;
