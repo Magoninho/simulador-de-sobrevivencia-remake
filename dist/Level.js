@@ -15,7 +15,7 @@ class Level {
                     // water
                     let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, false, WATER_BLOCK);
                     temp.onCollisionEnter = () => {
-                        statsManager.thirstIncrease();
+                        statsManager.thirstIncrease(0.2);
                         let drink_audio = document.getElementById("drink_audio");
                         if (statsManager.thirst < 100)
                             drink_audio.play();

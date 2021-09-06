@@ -21,6 +21,7 @@ class StatsManager {
 		this.energyDiv = document.getElementById("energyDiv") as HTMLDivElement;
 
 		this.hungryDiv.style.width = `${this.hungry}%`;
+
 	}
 
 	public update() {
@@ -61,20 +62,21 @@ class StatsManager {
 	}
 
 
-	public hungryIncrease() {
+	public hungryIncrease(value: number) {
 		if (this.hungry < 100)
-			this.hungry++;
+			this.hungry += Math.min(value, 100 - this.hungry);
 	}
-	public thirstIncrease() {
+	public thirstIncrease(value: number) {
 		if (this.thirst < 100)
-			this.thirst++;
+			this.thirst += Math.min(value, 100 - this.thirst);
+		
 	}
-	public cagarIncrease() {
+	public cagarIncrease(value: number) {
 		if (this.cagar < 100)
-			this.cagar++;
+			this.cagar += Math.min(value, 100 - this.cagar);
 	}
-	public energyIncrease() {
+	public energyIncrease(value: number) {
 		if (this.energy < 100)
-			this.energy++;
+			this.energy += Math.min(value, 100 - this.energy);
 	}
 }
