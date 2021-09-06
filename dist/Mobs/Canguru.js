@@ -28,7 +28,7 @@ class Canguru extends Mob {
             this.defeated = true; // TODO: REMOVE THIS LATER
             // TODO: FAZER UMA FUNÇÃO/CLASSE QUE PASSE O CANGURU COMO ARGUMENTO E FAZER ELE MORRER SE O PLAYER GANHAR
         };
-        while (getTileAt(this.x, this.y, LEVEL_1) == 3) { // if the kangaroo is over a tree
+        while (getTileAt(this.x, this.y, LEVEL_1) == 3 || getTileAt(this.x, this.y, LEVEL_1) == 1) { // if the kangaroo is over a tree or water
             // todo: change this later
             this.x = Math.floor(Math.random() * WORLD_WIDTH / 2) + 200;
             this.y = Math.floor(Math.random() * WORLD_HEIGHT / 2) + 200;
