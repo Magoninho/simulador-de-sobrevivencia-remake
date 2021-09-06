@@ -7,7 +7,7 @@ class Mob extends GameObject {
         this.height = height;
         this.image = image;
     }
-    update() {
+    update(deltaTime) {
     }
     render(ctx) {
         if (this.image != undefined) {

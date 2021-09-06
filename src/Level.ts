@@ -19,7 +19,7 @@ class Level {
 				let tile: number = this.level[i][j];
 				if (tile == 1) {
 					// water
-					let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, WATER_BLOCK);
+					let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, false, WATER_BLOCK);
 					temp.onCollisionEnter = () => {
 						statsManager.thirstIncrease();
 						let drink_audio: HTMLAudioElement = document.getElementById("drink_audio") as HTMLAudioElement;
@@ -29,12 +29,15 @@ class Level {
 					this.blocks.push(temp);
 				} else if (tile == 2) {
 					// grass
-					let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, GRASS_BLOCK);
+					let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, false, GRASS_BLOCK);
 					this.blocks.push(temp);
 				} else if (tile == 3) {
-					let tempGrass = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, GRASS_BLOCK);
+					let tempGrass = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, false, GRASS_BLOCK);
 					this.blocks.push(tempGrass);
-					let tempTree = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, TREE_BLOCK);
+					let tempTree = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, true, TREE_BLOCK);
+					tempTree.onCollisionEnter = () => {
+						console.log("madeirakkk");
+					};
 					this.blocks.push(tempTree);
 				}
 			}
@@ -43,7 +46,7 @@ class Level {
 		return this.blocks;
 	}
 
-	public add(object: Block) {
+	public add(object: Tile) {
 		this.blocks.push(object);
 	}
 

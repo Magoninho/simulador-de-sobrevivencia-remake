@@ -3,7 +3,7 @@ class Game {
     }
     start() {
         // instanciate stuff
-        this.grass = new Grass();
+        this.grass = new Grass(); // TODO: REMOVE THIS
         this.inputHandler = new InputHandler(this);
         this.player = new Player(game, PLAYER_INITIAL_POSITION_X, PLAYER_INITIAL_POSITION_Y);
         this.level = new Level(LEVEL_1);
@@ -23,7 +23,7 @@ class Game {
                 }
                 continue;
             }
-            this.mobList[mob].update();
+            this.mobList[mob].update(deltaTime);
         }
         statsManager.update();
     }

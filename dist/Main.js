@@ -2,7 +2,7 @@ const canvas = document.getElementById("gamecanvas");
 const ctx = canvas.getContext('2d');
 let game = new Game();
 game.start();
-game.player.setPosition(0, 0);
+// game.player.setPosition(0, 0);
 // let pName = document.createElement('P');
 // game.player.name = window.prompt("Qual o nome do seu jogador? (Máx: 10)");
 // if (!game.player.name) {

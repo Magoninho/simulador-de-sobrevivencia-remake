@@ -18,7 +18,7 @@ class Mob extends GameObject {
 	}
 
 
-	public update(): void {
+	public update(deltaTime: number): void {
 	}
 
 	public render(ctx): void {

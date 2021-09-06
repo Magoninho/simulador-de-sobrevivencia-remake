@@ -1,13 +1,11 @@
 class Block {
-    constructor(x, y, width, height, color, collidable, rigid) {
+    constructor(x, y, width, height) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.color = color;
     }
     onCollisionEnter() {
-        // new Dialog(["sexo"], "ok").show("dialog");
     }
     addImage(image) {
         this.image = image;

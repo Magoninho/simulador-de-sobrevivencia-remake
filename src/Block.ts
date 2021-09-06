@@ -7,16 +7,14 @@ class Block {
 
 	image: HTMLImageElement; // this is a quick solution for testing
 
-	constructor(x: number, y: number, width: number, height: number, color: string, collidable?: boolean, rigid?: boolean) {
+	constructor(x: number, y: number, width: number, height: number) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.color = color;
 	}
 
 	public onCollisionEnter(): void {
-		// new Dialog(["sexo"], "ok").show("dialog");
 	}
 
 	public addImage(image: HTMLImageElement): void {

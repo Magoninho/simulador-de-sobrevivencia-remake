@@ -1,11 +1,12 @@
 class Tile {
-    constructor(x, y, width, height, image) {
+    constructor(x, y, width, height, rigid, image) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.color = "purple"; // the default color if no texture provided
         this.image = image;
+        this.rigid = rigid;
     }
     onCollisionEnter() {
     }

@@ -1,5 +1,6 @@
-class Player {
+class Player extends Mob {
     constructor(game, x, y) {
+        super(x, y, PLAYER_SIZE, PLAYER_SIZE);
         this.x = x;
         this.y = y;
         this.dx = 0;
@@ -8,8 +9,9 @@ class Player {
         this.playerImage = new Image(PLAYER_SIZE, PLAYER_SIZE);
         this.playerImage.src = "../images/profile.png";
         this.isMoving = false;
+        this.playerCoordinates = new Coordinates(10, 15, this);
         // this will make sure that the player won't spawn suffocated in a block
-        while (getTileAt(this.x, this.y, LEVEL_1) == 1) {
+        while (getTileAt(this.x, this.y, LEVEL_1) == 1 || getTileAt(this.x, this.y, LEVEL_1) == 3) {
             // todo: change this later
             this.x = Math.floor(Math.random() * WORLD_WIDTH / 2) + 200;
             this.y = Math.floor(Math.random() * WORLD_HEIGHT / 2) + 200;
@@ -46,24 +48,32 @@ class Player {
         }
         return false;
     }
+    isCollidingWithTiles(arr) {
+        for (let index = 0; index < arr.length; index++) {
+            if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
+                this.x + (this.dx * 10) + PLAYER_SIZE > arr[index].x &&
+                this.y + (this.dy * 10) < arr[index].y + arr[index].height &&
+                this.y + (this.dy * 10) + PLAYER_SIZE > arr[index].y &&
+                arr[index].rigid) {
+                return true;
+            }
+        }
+        return false;
+    }
     applyTileCollisions(arr) {
         for (let index = 0; index < arr.length; index++) {
-            // if (arr[index]) {
             if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
                 this.x + (this.dx * 10) + PLAYER_SIZE > arr[index].x &&
                 this.y + (this.dy * 10) < arr[index].y + arr[index].height &&
                 this.y + (this.dy * 10) + PLAYER_SIZE > arr[index].y) {
                 arr[index].onCollisionEnter();
-                return true;
-                // }
             }
         }
-        return false;
     }
     update(deltaTime) {
         if (this.isMoving)
             statsManager.energyDecrease();
-        if (!this.isCollidingWithMob(game.mobList)) {
+        if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithTiles(game.blocks)) {
             this.vx = this.dx * PLAYER_SPEED * deltaTime;
             this.vy = this.dy * PLAYER_SPEED * deltaTime;
             if (this.dx != 0 && this.dy != 0) {
@@ -84,9 +94,11 @@ class Player {
             this.y = 0;
         if (this.y > this.game.level.getLevel().length * TILESIZE - PLAYER_SIZE)
             this.y = this.game.level.getLevel().length * TILESIZE - PLAYER_SIZE;
+        this.playerCoordinates.update();
     }
     render(ctx) {
         ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+        this.playerCoordinates.render(ctx);
     }
     setPosition(x, y) {
         this.x = x;

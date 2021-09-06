@@ -3,7 +3,7 @@ class GameObject {
         this.x = x;
         this.y = y;
     }
-    update() {
+    update(deltaTime) {
     }
     render(ctx) {
     }
