@@ -31,7 +31,15 @@ let dialogDiv = document.getElementById('dialogDiv') as HTMLDivElement;
 let tutorialDiv = document.getElementById('tutorial') as HTMLDivElement;
 
 
-// let dialogBox = new Dialog(["testando dialogo foda", "frase 2 omg"], "ok fodase.");
+new PopUp().popUp('Você está preso na ilha. Colete madeiras pra construir uma canoa. Não fique exausto. Mantenha-se sempre hidratado. Cague.', () => {
+
+	// WARNING: THIS IS TEMPORARY
+	let theme: HTMLAudioElement = document.getElementById('theme1') as HTMLAudioElement; // TODO: Make a class for audio
+	theme.play();
+	theme.addEventListener('ended', () => {
+		document.getElementById('theme3').play();
+	});
+})
 let tutorialDialogBox = new Dialog([
 	`Olá, ${game.player.name}.`,
 	"Bem vindo ao Simulador de Sobrevivência Remake!", 
@@ -42,7 +50,6 @@ let tutorialDialogBox = new Dialog([
 ], ">>");
 
 tutorialDialogBox.show("dialogs");
-// dialogBox.show(dialogDiv);
 
 function lerp(v0: number, v1: number, t: number): number {
 	return (1 - t) * v0 + t * v1;

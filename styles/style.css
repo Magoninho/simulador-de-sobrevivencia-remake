@@ -44,6 +44,57 @@ kbd {
 	
 }
 
+.popup {
+	background-color: white;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid #000;
+	padding: 10px;
+
+	text-align: center;
+	width: 600px;
+	height: 400px;;
+	display: none;
+	user-select: none;
+}
+
+.close {
+	/* text-align: right;
+	transform: translate(0, -50%);
+	position: relative;
+	background-color: red;
+	display: inherit; */
+	background-color: red;
+	/* display: block;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 50px;
+	margin: 0; */
+	float: right;
+	font-size: x-large;
+	color: white;
+	width: 30px;
+	cursor: pointer;
+	user-select: none;
+
+}
+
+.x {
+	/* position: relative;
+	right: 0px;
+	top: 0px;
+	width: auto;
+	background-color: red;
+	color: white;
+	margin: 0%;
+	cursor: pointer;
+	user-select: none; */
+
+}
+
 table, th, td {
 	border:1px solid black;
 	border-collapse: collapse;

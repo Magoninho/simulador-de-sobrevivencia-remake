@@ -5,6 +5,8 @@ TODO
 - player nadando
 - organizar os arquivos em pastas
 - olhar a parte de game states no video do js lá
+- fazer um sistema pra pausar os stats em certas ocasioes
+
 
 Plano:
 Tile  -> blocos lixo, mas pode ser colidivel (com a propriedade de onCollision) ou nao (ex: agua)

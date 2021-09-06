@@ -11,6 +11,13 @@
 </head>
 
 <body>
+
+	<audio src="../sounds/popup.wav" id="popup_audio"></audio>
+	<audio src="../sounds/drink.wav" id="drink_audio"></audio>
+	<audio src="../sounds/English_Country_Garden.mp3" id="theme1"></audio>
+	<audio src="../sounds/Oxygen Garden - Chris Zabriskie.mp3" id="theme2"></audio>
+	<audio src="../sounds/Stairway - Patrick Patrikios.mp3" id="theme3"></audio>
+
 	<div class="page">
 		<div class="gameboard">
 			<div class="right" style="float: left;">
@@ -59,11 +66,21 @@
 
 				</div>
 			</div>
+
+
 		</div>
 
-		<!-- audio -->
+		<div class="popup">
+			<!-- <span class="close" style="font-family: monospace;">&times;</span>
+				<br><br> -->
+			<p id="popup_text"></p>
+			<br>
+			<button id="popup_button">Ok</button>
+		</div>
 
-		<audio src="../sounds/popup.wav" id="popup"></audio>
+	<!-- audio -->
+
+		
 
 		<!-- Image sources -->
 		<img class="imagesrc" src="../images/grass.jpg" id="grass_block">
@@ -75,13 +92,14 @@
 		<!-- sprites -->
 		<img class="imagesrc" src="../images/canguru.png" id="canguru_sprite">
 
-		<audio src="../sounds/drink.wav" id="drink_audio"></audio>
+		
 
 
 
 		<script src="../dist/shuffle_seed.js"></script>
 		<script src="../dist/Loaders/AudioLoader.js"></script>
 		<script src="../dist/Loaders/GraphicsLoader.js"></script>
+		<script src="../dist/PopUp.js"></script>
 		<script src="../dist/GameObject.js"></script>
 		<script src="../dist/Coordinates.js"></script>
 		<script src="../dist/Mobs/Mob.js"></script>

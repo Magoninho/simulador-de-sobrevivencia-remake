@@ -20,7 +20,14 @@ statsManager.energyDecrease();
 generateMap(10, 10);
 let dialogDiv = document.getElementById('dialogDiv');
 let tutorialDiv = document.getElementById('tutorial');
-// let dialogBox = new Dialog(["testando dialogo foda", "frase 2 omg"], "ok fodase.");
+new PopUp().popUp('Você está preso na ilha. Colete madeiras pra construir uma canoa. Não fique exausto. Mantenha-se sempre hidratado. Cague.', () => {
+    // WARNING: THIS IS TEMPORARY
+    let theme = document.getElementById('theme1'); // TODO: Make a class for audio
+    theme.play();
+    theme.addEventListener('ended', () => {
+        document.getElementById('theme3').play();
+    });
+});
 let tutorialDialogBox = new Dialog([
     `Olá, ${game.player.name}.`,
     "Bem vindo ao Simulador de Sobrevivência Remake!",
@@ -29,7 +36,6 @@ let tutorialDialogBox = new Dialog([
     "Para isso, pegue madeira, mas cuidado pra não morrer no processo kkkk"
 ], ">>");
 tutorialDialogBox.show("dialogs");
-// dialogBox.show(dialogDiv);
 function lerp(v0, v1, t) {
     return (1 - t) * v0 + t * v1;
 }
