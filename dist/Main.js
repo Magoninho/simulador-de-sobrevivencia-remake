@@ -2,7 +2,6 @@ const canvas = document.getElementById("gamecanvas");
 const ctx = canvas.getContext('2d');
 let game = new Game();
 game.start();
-game.player.setPosition(0, 0);
 let popup = new PopUp().popUp('esse jogo ainda tá em fase de desenvolvimento<br>tem 2 cangurus no mapa<br>voce pode beber aqua<br>ignora a mensagem que aparece quando voce encosta na arvore, não vai ser assim o sistema de coleta de madeira pode ficar tranquilo<br>eu provavelmente vou tentar fazer um sistema de coleta usando o mouse mesmo, vai ser bem simples (não de fazer, mas como funciona kk)', () => {
     // WARNING: THIS IS TEMPORARY
     let theme = document.getElementById('theme1'); // TODO: Make a class for audio
@@ -17,8 +16,6 @@ statsManager.hungryDecrease();
 statsManager.thirstDecrease();
 statsManager.cagarDecrease();
 statsManager.energyDecrease();
-let dialogDiv = document.getElementById('dialogDiv');
-let tutorialDiv = document.getElementById('tutorial');
 let tutorialDialogBox = new Dialog([
     `Olá, ${game.player.name}.`,
     "Bem vindo ao Simulador de Sobrevivência Remake!",
@@ -46,6 +43,8 @@ function gameLoop(timestamp) {
     cameraY = Math.min(0, cameraY);
     cameraX = Math.max(cameraX, -WORLD_WIDTH + GAME_WIDTH);
     cameraY = Math.max(cameraY, -WORLD_HEIGHT + GAME_HEIGHT);
+    // TODO: to make the camera class this is the function that will change
+    // instead of translating the entire context, translate only the game blocks and stuff
     ctx.translate(cameraX, cameraY);
     // console.log(cameraX);
     game.render(ctx);

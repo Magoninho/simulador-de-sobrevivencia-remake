@@ -2,11 +2,17 @@ TODO
 
 - adicionar funções de onSlaOqFinishes no Stats pra fazer coisa acontecer
 - comentar
-- player nadando
 - organizar os arquivos em pastas
 - olhar a parte de game states no video do js lá
 - fazer um sistema pra pausar os stats em certas ocasioes
-- pesquisar todos os TODOs no codigo e faze-los
+- pesquisar todos os TODOs no codigo e faze-los (com aquela extensão lá kek)
+
+coisas para refatorar
+- o sistema de movimentação do player
+	- tentar colocar na função move()
+- fazer o sistema de colisão pela função getTile() e não por AABB, pois não se encaixa bem
+	- separar as colisões em ambos os eixos pra fazer o sliding
+
 
 
 Plano:

@@ -27,10 +27,6 @@ statsManager.cagarDecrease();
 statsManager.energyDecrease();
 
 
-let dialogDiv = document.getElementById('dialogDiv') as HTMLDivElement;
-let tutorialDiv = document.getElementById('tutorial') as HTMLDivElement;
-
-
 
 let tutorialDialogBox = new Dialog([
 	`Olá, ${game.player.name}.`,
@@ -69,6 +65,8 @@ function gameLoop(timestamp: number): void {
 	cameraX = Math.max(cameraX, -WORLD_WIDTH+GAME_WIDTH);
 	cameraY = Math.max(cameraY, -WORLD_HEIGHT+GAME_HEIGHT);
 	
+	// TODO: to make the camera class this is the function that will change
+	// instead of translating the entire context, translate only the game blocks and stuff
 	ctx.translate(cameraX, cameraY);
 	
 	// console.log(cameraX);

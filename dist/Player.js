@@ -11,7 +11,8 @@ class Player extends Mob {
         this.isMoving = false;
         this.playerCoordinates = new Coordinates(10, 15, this);
         // this will make sure that the player won't spawn suffocated in a block
-        while (getTileAt(this.x, this.y, LEVEL_1) == 1 || getTileAt(this.x, this.y, LEVEL_1) == 3) {
+        while (getTileAt(this.x, this.y, LEVEL_1) == 1 ||
+            getTileAt(this.x, this.y, LEVEL_1) == 3) {
             // todo: change this later
             this.x = Math.floor(Math.random() * WORLD_WIDTH / 2) + 200;
             this.y = Math.floor(Math.random() * WORLD_HEIGHT / 2) + 200;
