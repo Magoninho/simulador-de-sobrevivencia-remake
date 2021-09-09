@@ -27,6 +27,7 @@ class Canguru extends Mob {
 		this.image = new GraphicsLoader().loadGraphics('../images/canguru.png');
 		this.dialog = new Dialog(["Você achou um canguru fodão :O<br><span style='color: red'>Vida: 420</span><br><span style='color: blue'>Dano: 69</span>"]);
 		this.dialog.onConfirm = () => {
+			// basicamente a batalha vai começar aqui
 			this.defeated = true; // TODO: REMOVE THIS LATER
 			// TODO: FAZER UMA FUNÇÃO/CLASSE QUE PASSE O CANGURU COMO ARGUMENTO E FAZER ELE MORRER SE O PLAYER GANHAR
 		};

@@ -32,6 +32,8 @@ class Level {
 					let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, false, GRASS_BLOCK);
 					this.blocks.push(temp);
 				} else if (tile == 3) {
+
+					// FIXME: Separate the level in layers so i wont do this shit anymore
 					let tempGrass = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, false, GRASS_BLOCK);
 					this.blocks.push(tempGrass);
 					let tempTree = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, true, TREE_BLOCK);
@@ -46,11 +48,15 @@ class Level {
 		return this.blocks;
 	}
 
-	public add(object: Tile) {
-		this.blocks.push(object);
-	}
+	// public add(object: Tile) {
+	// 	this.blocks.push(object);
+	// }
 
 	public getLevel(): number[][] {
 		return this.level;
+	}
+
+	public getTile(x: number, y: number): Tile {
+		return this.blocks[x + y * this.level[0].length];
 	}
 }

@@ -1,3 +1,4 @@
+const DEBUG = false;
 const GAME_WIDTH = 600;
 const GAME_HEIGHT = 500;
 const TILESIZE = 48;

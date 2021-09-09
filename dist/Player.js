@@ -99,7 +99,8 @@ class Player extends Mob {
     }
     render(ctx) {
         ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
-        this.playerCoordinates.render(ctx);
+        if (DEBUG)
+            this.playerCoordinates.render(ctx);
     }
     setPosition(x, y) {
         this.x = x;

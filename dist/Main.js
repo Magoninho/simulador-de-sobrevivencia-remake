@@ -27,7 +27,7 @@ tutorialDialogBox.show("dialogs");
 function lerp(v0, v1, t) {
     return (1 - t) * v0 + t * v1;
 }
-// TODO: organize the camera thing
+// FIXME: organize the camera thing
 let cameraX = -game.player.x + GAME_WIDTH / 2;
 let cameraY = -game.player.y + GAME_HEIGHT / 2;
 let lastTime = 0;

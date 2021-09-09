@@ -6,14 +6,12 @@ TODO
 - olhar a parte de game states no video do js lá
 - fazer um sistema pra pausar os stats em certas ocasioes
 - pesquisar todos os TODOs no codigo e faze-los (com aquela extensão lá kek)
+- Sistema de audio
+- Sistema de layers para os tiles do mapa
 
 coisas para refatorar
 - o sistema de movimentação do player
 	- tentar colocar na função move()
-- fazer o sistema de colisão pela função getTile() e não por AABB, pois não se encaixa bem
-	- separar as colisões em ambos os eixos pra fazer o sliding
-
-
 
 Plano:
 Tile  -> blocos lixo, mas pode ser colidivel (com a propriedade de onCollision) ou nao (ex: agua)
