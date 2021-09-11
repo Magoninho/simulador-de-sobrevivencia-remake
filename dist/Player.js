@@ -11,8 +11,8 @@ class Player extends Mob {
         this.isMoving = false;
         this.playerCoordinates = new Coordinates(10, 15, this);
         // this will make sure that the player won't spawn suffocated in a block
-        while (getTileAt(this.x, this.y, LEVEL_1) == 1 ||
-            getTileAt(this.x, this.y, LEVEL_1) == 3) {
+        while (getTileAt(this.x, this.y, LEVEL) == 1 ||
+            getTileAt(this.x, this.y, LEVEL) == 3) {
             // todo: change this later
             this.x = Math.floor(Math.random() * WORLD_WIDTH / 2) + 200;
             this.y = Math.floor(Math.random() * WORLD_HEIGHT / 2) + 200;
@@ -49,7 +49,7 @@ class Player extends Mob {
         }
         return false;
     }
-    isCollidingWithTiles(arr) {
+    isCollidingWithRigidTiles(arr) {
         for (let index = 0; index < arr.length; index++) {
             if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
                 this.x + (this.dx * 10) + PLAYER_SIZE > arr[index].x &&
@@ -69,13 +69,14 @@ class Player extends Mob {
                 this.y + (this.dy * 10) < arr[index].y + arr[index].height &&
                 this.y + (this.dy * 10) + PLAYER_SIZE > arr[index].y) {
                 arr[index].onCollisionEnter();
+                break; // this is the most important break i've ever done, literally
             }
         }
     }
     update(deltaTime) {
         if (this.isMoving)
             statsManager.energyDecrease();
-        if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithTiles(game.blocks)) {
+        if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
             this.vx = this.dx * PLAYER_SPEED * deltaTime;
             this.vy = this.dy * PLAYER_SPEED * deltaTime;
             if (this.dx != 0 && this.dy != 0) {
@@ -85,17 +86,17 @@ class Player extends Mob {
             this.x += this.vx;
             this.y += this.vy;
             // this will check collisions with tiles that have collision functions defined
-            this.applyTileCollisions(game.blocks);
+            this.applyTileCollisions(game.blocks[GROUND_LAYER]);
         }
         // dont pass the limits
         if (this.x < 0)
             this.x = 0;
-        if (this.x > this.game.level.getLevel()[0].length * TILESIZE - PLAYER_SIZE)
-            this.x = this.game.level.getLevel()[0].length * TILESIZE - PLAYER_SIZE;
+        if (this.x > this.game.levelLayers[GROUND_LAYER].getLevel()[0].length * TILESIZE - PLAYER_SIZE)
+            this.x = this.game.levelLayers[GROUND_LAYER].getLevel()[0].length * TILESIZE - PLAYER_SIZE;
         if (this.y < 0)
             this.y = 0;
-        if (this.y > this.game.level.getLevel().length * TILESIZE - PLAYER_SIZE)
-            this.y = this.game.level.getLevel().length * TILESIZE - PLAYER_SIZE;
+        if (this.y > this.game.levelLayers[GROUND_LAYER].getLevel().length * TILESIZE - PLAYER_SIZE)
+            this.y = this.game.levelLayers[1].getLevel().length * TILESIZE - PLAYER_SIZE;
         this.playerCoordinates.update();
     }
     render(ctx) {

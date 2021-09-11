@@ -1,10 +1,10 @@
-const DEBUG = false;
+const DEBUG = true;
 const GAME_WIDTH = 600;
 const GAME_HEIGHT = 500;
 const TILESIZE = 48;
-const LEVEL_1 = generateMap(60, 60);
-const WORLD_WIDTH = LEVEL_1[0].length * TILESIZE;
-const WORLD_HEIGHT = LEVEL_1.length * TILESIZE;
+const LEVEL = generateMap(60, 60);
+const WORLD_WIDTH = LEVEL[0].length * TILESIZE;
+const WORLD_HEIGHT = LEVEL.length * TILESIZE;
 // Player information
 const PLAYER_SIZE = 38;
 const PLAYER_SPEED = 0.4;
@@ -20,4 +20,7 @@ const DIRT_BLOCK = document.getElementById('dirt_block');
 const WATER_BLOCK = document.getElementById('water_block');
 const TREE_BLOCK = document.getElementById('tree_block');
 const CANGURU_SPRITE = document.getElementById('canguru_sprite');
+// Layers
+const GROUND_LAYER = 0;
+const OBSTACLES_LAYER = 1;
 //# sourceMappingURL=Constants.js.map

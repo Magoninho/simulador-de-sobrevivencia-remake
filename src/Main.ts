@@ -7,8 +7,8 @@ let game: Game = new Game();
 game.start();
 
 
-
-let popup = new PopUp().popUp('esse jogo ainda tá em fase de desenvolvimento<br>tem 2 cangurus no mapa<br>voce pode beber aqua<br>ignora a mensagem que aparece quando voce encosta na arvore, não vai ser assim o sistema de coleta de madeira pode ficar tranquilo<br>eu provavelmente vou tentar fazer um sistema de coleta usando o mouse mesmo, vai ser bem simples (não de fazer, mas como funciona kk)', () => {
+if (!DEBUG)
+	new PopUp().popUp('esse jogo ainda tá em fase de desenvolvimento<br>tem 2 cangurus no mapa<br>voce pode beber aqua<br>ignora a mensagem que aparece quando voce encosta na arvore, não vai ser assim o sistema de coleta de madeira pode ficar tranquilo<br>eu provavelmente vou tentar fazer um sistema de coleta usando o mouse mesmo, vai ser bem simples (não de fazer, mas como funciona kk)', () => {
 	
 	// WARNING: THIS IS TEMPORARY
 

@@ -1,4 +1,4 @@
-let seed = Date.now();
+const seed = Date.now();
 const openSimplex = openSimplexNoise(seed);
 console.log(seed);
 
@@ -13,6 +13,5 @@ function generateMap(width: number, height: number): number[][] {
 			map[y].push(Math.round(openSimplex.noise2D(x / zoom, y / zoom) + 2));
 		}
 	}
-	console.log(map);
 	return map;
 }

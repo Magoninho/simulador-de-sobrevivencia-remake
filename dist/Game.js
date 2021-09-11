@@ -6,8 +6,17 @@ class Game {
         this.grass = new Grass(); // TODO: REMOVE THIS
         this.inputHandler = new InputHandler(this);
         this.player = new Player(game, PLAYER_INITIAL_POSITION_X, PLAYER_INITIAL_POSITION_Y);
-        this.level = new Level(LEVEL_1);
-        this.blocks = this.level.buildLevel();
+        // TODO: make a layers array later
+        this.levelLayers = [
+            new Ground(LEVEL),
+            new Obstacles(LEVEL)
+        ];
+        this.blocks = [];
+        for (let layerIndex = 0; layerIndex < this.levelLayers.length; layerIndex++) {
+            const layer = this.levelLayers[layerIndex];
+            this.blocks.push(layer.buildLevel());
+        }
+        console.log(this.blocks);
         this.mobList = [
             new Canguru(Math.floor(Math.random() * WORLD_WIDTH - 200) + 200, WORLD_HEIGHT - 200, 200, 100),
             new Canguru(200, 100, 200, 100)
@@ -29,10 +38,14 @@ class Game {
     }
     render(ctx) {
         this.grass.render(ctx);
-        for (let blockIndex = 0; blockIndex < this.blocks.length; blockIndex++) {
-            const block = this.blocks[blockIndex];
-            block.render(ctx);
+        for (let layer = 0; layer < this.blocks.length; layer++) {
+            const currentLayer = this.blocks[layer];
+            for (let blockIndex = 0; blockIndex < currentLayer.length; blockIndex++) {
+                const block = currentLayer[blockIndex];
+                block.render(ctx);
+            }
         }
+        // TODO rendering mobs (TODO: isso provavelmente é temporario, checar classe Level)
         for (let mob = 0; mob < this.mobList.length; mob++) {
             this.mobList[mob].render(ctx);
         }

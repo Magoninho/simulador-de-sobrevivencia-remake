@@ -25,13 +25,13 @@ class Player extends Mob {
 		this.isMoving = false;
 
 		this.playerCoordinates = new Coordinates(10, 15, this);
-		
+
 		// this will make sure that the player won't spawn suffocated in a block
-		while (getTileAt(this.x, this.y, LEVEL_1) == 1 || 
-			   getTileAt(this.x, this.y, LEVEL_1) == 3) {
+		while (getTileAt(this.x, this.y, LEVEL) == 1 ||
+			getTileAt(this.x, this.y, LEVEL) == 3) {
 			// todo: change this later
-			this.x = Math.floor(Math.random() * WORLD_WIDTH/2) + 200;
-			this.y = Math.floor(Math.random() * WORLD_HEIGHT/2) + 200;
+			this.x = Math.floor(Math.random() * WORLD_WIDTH / 2) + 200;
+			this.y = Math.floor(Math.random() * WORLD_HEIGHT / 2) + 200;
 		}
 		console.log("achou uma posição boa na " + this.x + " " + this.y);
 	}
@@ -62,19 +62,19 @@ class Player extends Mob {
 	private isCollidingWithMob(arr: Mob[]): boolean {
 		for (let index = 0; index < arr.length; index++) {
 			// if (arr[index]) {
-				if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
-					this.x + (this.dx * 10) + PLAYER_SIZE > arr[index].x &&
-					this.y + (this.dy * 10) < arr[index].y + arr[index].height &&
-					this.y + (this.dy * 10) + PLAYER_SIZE > arr[index].y) {
-					arr[index].onCollisionEnter();
-					return true;
+			if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
+				this.x + (this.dx * 10) + PLAYER_SIZE > arr[index].x &&
+				this.y + (this.dy * 10) < arr[index].y + arr[index].height &&
+				this.y + (this.dy * 10) + PLAYER_SIZE > arr[index].y) {
+				arr[index].onCollisionEnter();
+				return true;
 				// }
 			}
 		}
 		return false;
 	}
 
-	private isCollidingWithTiles(arr: Tile[]): boolean {
+	private isCollidingWithRigidTiles(arr: Tile[]): boolean {
 		for (let index = 0; index < arr.length; index++) {
 			if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
 				this.x + (this.dx * 10) + PLAYER_SIZE > arr[index].x &&
@@ -95,6 +95,7 @@ class Player extends Mob {
 				this.y + (this.dy * 10) < arr[index].y + arr[index].height &&
 				this.y + (this.dy * 10) + PLAYER_SIZE > arr[index].y) {
 				arr[index].onCollisionEnter();
+				break; // this is the most important break i've ever done, literally
 			}
 		}
 	}
@@ -102,8 +103,8 @@ class Player extends Mob {
 	public update(deltaTime: number): void {
 
 		if (this.isMoving) statsManager.energyDecrease();
-		
-		if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithTiles(game.blocks)) {
+
+		if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
 			this.vx = this.dx * PLAYER_SPEED * deltaTime;
 			this.vy = this.dy * PLAYER_SPEED * deltaTime;
 
@@ -118,7 +119,7 @@ class Player extends Mob {
 
 
 			// this will check collisions with tiles that have collision functions defined
-			this.applyTileCollisions(game.blocks);	
+			this.applyTileCollisions(game.blocks[GROUND_LAYER]);
 
 		}
 
@@ -126,9 +127,9 @@ class Player extends Mob {
 
 		// dont pass the limits
 		if (this.x < 0) this.x = 0;
-		if (this.x > this.game.level.getLevel()[0].length * TILESIZE - PLAYER_SIZE) this.x = this.game.level.getLevel()[0].length * TILESIZE - PLAYER_SIZE;
+		if (this.x > this.game.levelLayers[GROUND_LAYER].getLevel()[0].length * TILESIZE - PLAYER_SIZE) this.x = this.game.levelLayers[GROUND_LAYER].getLevel()[0].length * TILESIZE - PLAYER_SIZE;
 		if (this.y < 0) this.y = 0;
-		if (this.y > this.game.level.getLevel().length * TILESIZE - PLAYER_SIZE) this.y = this.game.level.getLevel().length * TILESIZE - PLAYER_SIZE;
+		if (this.y > this.game.levelLayers[GROUND_LAYER].getLevel().length * TILESIZE - PLAYER_SIZE) this.y = this.game.levelLayers[1].getLevel().length * TILESIZE - PLAYER_SIZE;
 
 		this.playerCoordinates.update();
 	}

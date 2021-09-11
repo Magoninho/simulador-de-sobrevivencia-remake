@@ -1,4 +1,4 @@
-const DEBUG = false;
+const DEBUG = true;
 
 const GAME_WIDTH = 600;
 const GAME_HEIGHT = 500;
@@ -6,18 +6,18 @@ const GAME_HEIGHT = 500;
 
 const TILESIZE = 48;
 
-const LEVEL_1: number[][] = generateMap(60, 60);
+const LEVEL: number[][] = generateMap(60, 60);
 
 
-const WORLD_WIDTH = LEVEL_1[0].length * TILESIZE;
-const WORLD_HEIGHT = LEVEL_1.length * TILESIZE;
+const WORLD_WIDTH = LEVEL[0].length * TILESIZE;
+const WORLD_HEIGHT = LEVEL.length * TILESIZE;
 
 // Player information
 const PLAYER_SIZE = 38;
 const PLAYER_SPEED = 0.4;
 
-const PLAYER_INITIAL_POSITION_X = WORLD_WIDTH/2;
-const PLAYER_INITIAL_POSITION_Y = WORLD_HEIGHT/2;
+const PLAYER_INITIAL_POSITION_X = WORLD_WIDTH / 2;
+const PLAYER_INITIAL_POSITION_Y = WORLD_HEIGHT / 2;
 
 // MISC
 const YES_NO = 2;
@@ -34,3 +34,8 @@ const TREE_BLOCK = document.getElementById('tree_block') as HTMLImageElement;
 
 const CANGURU_SPRITE = document.getElementById('canguru_sprite') as HTMLImageElement;
 
+
+// Layers
+
+const GROUND_LAYER: number = 0;
+const OBSTACLES_LAYER: number = 1;
