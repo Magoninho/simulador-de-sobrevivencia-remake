@@ -87,6 +87,7 @@ class Player extends Mob {
 		return false;
 	}
 
+	// TODO: change this to only compare the player coordinates with the tiles
 	private applyTileCollisions(arr: Tile[]): void {
 		for (let index = 0; index < arr.length; index++) {
 			if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
