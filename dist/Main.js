@@ -12,11 +12,6 @@ if (!DEBUG)
         });
     });
 // TODO: MOVE THIS TO THE GAME CLASS
-let statsManager = new StatsManager();
-statsManager.hungryDecrease();
-statsManager.thirstDecrease();
-statsManager.cagarDecrease();
-statsManager.energyDecrease();
 let tutorialDialogBox = new Dialog([
     `Olá, ${game.player.name}.`,
     "Bem vindo ao Simulador de Sobrevivência Remake!",

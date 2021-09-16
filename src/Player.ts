@@ -59,6 +59,8 @@ class Player extends Mob {
 	// TODO: fazer um array com walls e um loop pra testar colisão com cada um dentro dessa função
 	// TODO: renomear para isCollidingWithWalls pra fazer sentido essa alteração
 
+
+	// FIXME: TA TUDO UMA BOSTA
 	private isCollidingWithMob(arr: Mob[]): boolean {
 		for (let index = 0; index < arr.length; index++) {
 			// if (arr[index]) {
@@ -87,7 +89,7 @@ class Player extends Mob {
 		return false;
 	}
 
-	// TODO: change this to only compare the player coordinates with the tiles
+	// TODO: ask for level as parameter, and loop through the level and then make the collisions with all tiles
 	private applyTileCollisions(arr: Tile[]): void {
 		for (let index = 0; index < arr.length; index++) {
 			if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
@@ -102,7 +104,7 @@ class Player extends Mob {
 
 	public update(deltaTime: number): void {
 
-		if (this.isMoving) statsManager.energyDecrease();
+		if (this.isMoving) game.statsManager.energyDecrease();
 
 		if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
 			this.vx = this.dx * PLAYER_SPEED * deltaTime;
@@ -120,6 +122,7 @@ class Player extends Mob {
 
 			// this will check collisions with tiles that have collision functions defined
 			this.applyTileCollisions(game.blocks[GROUND_LAYER]);
+			this.applyTileCollisions(game.blocks[OBSTACLES_LAYER]);
 
 		}
 
@@ -138,10 +141,5 @@ class Player extends Mob {
 		ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
 
 		if (DEBUG) this.playerCoordinates.render(ctx);
-	}
-
-	public setPosition(x: number, y: number) {
-		this.x = x;
-		this.y = y;
 	}
 }

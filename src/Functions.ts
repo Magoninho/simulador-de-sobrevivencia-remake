@@ -6,9 +6,8 @@ function getTileAt(x: number, y: number, grid: number[][]): number {
 	return grid[Math.floor(y / TILESIZE)][Math.floor(x / TILESIZE)];
 }
 
-function clearDialogs() {
+function clearDialogs(): void {
 	for (let dialog = document.getElementsByClassName('dialogs').length-1; dialog > 0; dialog--) {
 		document.getElementById('info').removeChild(document.getElementsByClassName('dialogs')[dialog]);
-		
 	}
 }

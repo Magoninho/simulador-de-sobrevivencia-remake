@@ -9,12 +9,19 @@ class Game {
 	mobList: Mob[];
 
 	testeMob: TesteMob;
+	statsManager: StatsManager;
 
 	constructor() {
 
 	}
 
 	start() {
+		this.statsManager = new StatsManager();
+		this.statsManager.hungryDecrease();
+		this.statsManager.thirstDecrease();
+		this.statsManager.cagarDecrease();
+		this.statsManager.energyDecrease();
+
 		// instanciate stuff
 		this.grass = new Grass(); // TODO: REMOVE THIS
 		this.inputHandler = new InputHandler(this);
@@ -58,7 +65,7 @@ class Game {
 			this.mobList[mob].update(deltaTime);
 		}
 
-		statsManager.update();
+		this.statsManager.update();
 	}
 
 	render(ctx) {

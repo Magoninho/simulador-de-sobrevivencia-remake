@@ -13,9 +13,9 @@ class Ground extends Level {
 					// water
 					let temp = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, false, WATER_BLOCK);
 					temp.onCollisionEnter = () => {
-						statsManager.thirstIncrease(0.2);
+						game.statsManager.thirstIncrease(0.2);
 						let drink_audio: HTMLAudioElement = document.getElementById("drink_audio") as HTMLAudioElement;
-						if (statsManager.thirst < 100)
+						if (game.statsManager.thirst < 100)
 							drink_audio.play();
 					};
 					this.blocks.push(temp);

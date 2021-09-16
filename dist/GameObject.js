@@ -16,5 +16,9 @@ class GameObject {
     getPosition() {
         return [this.x, this.y];
     }
+    setPosition(x, y) {
+        this.x = x;
+        this.y = y;
+    }
 }
 //# sourceMappingURL=GameObject.js.map

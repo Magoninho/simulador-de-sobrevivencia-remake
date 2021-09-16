@@ -7,21 +7,26 @@ class GameObject {
 		this.y = y;
 	}
 
-	update(deltaTime: number) {
+	public update(deltaTime: number) {
 	}
 
-	render(ctx) {
+	public render(ctx) {
 	}
 
-	setX(x: number): void {
+	public setX(x: number): void {
 		this.x = x;
 	}
-	setY(y: number): void {
+	public setY(y: number): void {
 		this.y = y;
 	}
 
-	getPosition(): number[] {
+	public getPosition(): number[] {
 		return [this.x, this.y];
+	}
+
+	public setPosition(x: number, y: number) {
+		this.x = x;
+		this.y = y;
 	}
 
 }
