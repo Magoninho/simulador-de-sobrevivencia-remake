@@ -43,16 +43,28 @@ class Player extends Mob {
 	* @param {number} dy - y direction (-1, 0, 1)
 	*
 	*/
-	public move(dx: number, dy: number): void {
+	public move(dx: number, dy: number, deltaTime: number): void {
+		if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
+			this.vx = dx * PLAYER_SPEED * deltaTime;
+			this.vy = dy * PLAYER_SPEED * deltaTime;
 
-		this.dx = dx;
-		this.dy = dy;
+
+
+			if (dx != 0 && dy != 0) {
+				this.vx /= 1.414;
+				this.vy /= 1.414;
+			}
+
+			this.x += this.vx;
+			this.y += this.vy;
+			// this will check collisions with tiles that have collision functions defined
+			this.applyTileCollisions(game.blocks[GROUND_LAYER]);
+			this.applyTileCollisions(game.blocks[OBSTACLES_LAYER]);
+		}
+
 	}
 
-	public stop(): void {
-		this.dx = 0;
-		this.dy = 0;
-	}
+
 
 
 
@@ -76,6 +88,7 @@ class Player extends Mob {
 		return false;
 	}
 
+	// TODO: move this function to another place idk
 	private isCollidingWithRigidTiles(arr: Tile[]): boolean {
 		for (let index = 0; index < arr.length; index++) {
 			if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
@@ -106,25 +119,13 @@ class Player extends Mob {
 
 		if (this.isMoving) game.statsManager.energyDecrease();
 
-		if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
-			this.vx = this.dx * PLAYER_SPEED * deltaTime;
-			this.vy = this.dy * PLAYER_SPEED * deltaTime;
+		// if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
+		this.move(this.dx, this.dy, deltaTime);
 
 
+		
 
-			if (this.dx != 0 && this.dy != 0) {
-				this.vx /= 1.414;
-				this.vy /= 1.414;
-			}
-			this.x += this.vx;
-			this.y += this.vy;
-
-
-			// this will check collisions with tiles that have collision functions defined
-			this.applyTileCollisions(game.blocks[GROUND_LAYER]);
-			this.applyTileCollisions(game.blocks[OBSTACLES_LAYER]);
-
-		}
+		// }
 
 
 

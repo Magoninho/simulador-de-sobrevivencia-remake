@@ -25,13 +25,20 @@ class Player extends Mob {
     * @param {number} dy - y direction (-1, 0, 1)
     *
     */
-    move(dx, dy) {
-        this.dx = dx;
-        this.dy = dy;
-    }
-    stop() {
-        this.dx = 0;
-        this.dy = 0;
+    move(dx, dy, deltaTime) {
+        if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
+            this.vx = dx * PLAYER_SPEED * deltaTime;
+            this.vy = dy * PLAYER_SPEED * deltaTime;
+            if (dx != 0 && dy != 0) {
+                this.vx /= 1.414;
+                this.vy /= 1.414;
+            }
+            this.x += this.vx;
+            this.y += this.vy;
+            // this will check collisions with tiles that have collision functions defined
+            this.applyTileCollisions(game.blocks[GROUND_LAYER]);
+            this.applyTileCollisions(game.blocks[OBSTACLES_LAYER]);
+        }
     }
     // TODO: fazer um array com walls e um loop pra testar colisão com cada um dentro dessa função
     // TODO: renomear para isCollidingWithWalls pra fazer sentido essa alteração
@@ -50,6 +57,7 @@ class Player extends Mob {
         }
         return false;
     }
+    // TODO: move this function to another place idk
     isCollidingWithRigidTiles(arr) {
         for (let index = 0; index < arr.length; index++) {
             if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
@@ -77,19 +85,9 @@ class Player extends Mob {
     update(deltaTime) {
         if (this.isMoving)
             game.statsManager.energyDecrease();
-        if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
-            this.vx = this.dx * PLAYER_SPEED * deltaTime;
-            this.vy = this.dy * PLAYER_SPEED * deltaTime;
-            if (this.dx != 0 && this.dy != 0) {
-                this.vx /= 1.414;
-                this.vy /= 1.414;
-            }
-            this.x += this.vx;
-            this.y += this.vy;
-            // this will check collisions with tiles that have collision functions defined
-            this.applyTileCollisions(game.blocks[GROUND_LAYER]);
-            this.applyTileCollisions(game.blocks[OBSTACLES_LAYER]);
-        }
+        // if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
+        this.move(this.dx, this.dy, deltaTime);
+        // }
         // dont pass the limits
         if (this.x < 0)
             this.x = 0;

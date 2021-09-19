@@ -33,6 +33,9 @@ class Ground extends Level {
 					// 	new Dialog(["voce pega madeira kkk"], "ok massa").show("dialogs");
 					// };
 					// this.blocks.push(tempTree);
+				} else {
+					let tempTile = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, false, CANGURU_SPRITE);
+					this.blocks.push(tempTile);
 				}
 			}
 		}

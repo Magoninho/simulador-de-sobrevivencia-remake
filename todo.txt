@@ -1,13 +1,12 @@
 TODO
 
-- adicionar funções de onSlaOqFinishes no Stats pra fazer coisa acontecer
 - comentar
 - organizar os arquivos em pastas
-- olhar a parte de game states no video do js lá
-- fazer um sistema pra pausar os stats em certas ocasioes
-- pesquisar todos os TODOs no codigo e faze-los (com aquela extensão lá kek)
+- game states
+- pesquisar todos os TODOs no codigo e faze-los
 - Sistema de audio
 - Sistema de layers para os tiles do mapa
+- e muuuita coisa...
 
 coisas para refatorar
 - o sistema de movimentação do player

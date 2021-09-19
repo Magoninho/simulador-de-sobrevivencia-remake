@@ -50,7 +50,9 @@ class Game {
 
 
 	}
-
+	
+	
+	// updates mobs, tiles etc
 	update(deltaTime) {
 		this.player.update(deltaTime);
 		for (let mob = 0; mob < this.mobList.length; mob++) {
@@ -68,24 +70,25 @@ class Game {
 		this.statsManager.update();
 	}
 
+	// rendering entities, tiles, and stuff
 	render(ctx) {
 
 		this.grass.render(ctx);
-
+		
 		for (let layer = 0; layer < this.blocks.length; layer++) {
 			const currentLayer = this.blocks[layer];
 			for (let blockIndex = 0; blockIndex < currentLayer.length; blockIndex++) {
 				const block = currentLayer[blockIndex];
 				block.render(ctx);
 			}
-
+			
 		}
-
+		
 		// TODO rendering mobs (TODO: isso provavelmente é temporario, checar classe Level)
 		for (let mob = 0; mob < this.mobList.length; mob++) {
 			this.mobList[mob].render(ctx);
 		}
+		
 		this.player.render(ctx);
-
 	}
 }

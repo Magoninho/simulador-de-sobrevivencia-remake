@@ -27,6 +27,7 @@ class Game {
             new Canguru(200, 100, 200, 100)
         ];
     }
+    // updates mobs, tiles etc
     update(deltaTime) {
         this.player.update(deltaTime);
         for (let mob = 0; mob < this.mobList.length; mob++) {
@@ -41,6 +42,7 @@ class Game {
         }
         this.statsManager.update();
     }
+    // rendering entities, tiles, and stuff
     render(ctx) {
         this.grass.render(ctx);
         for (let layer = 0; layer < this.blocks.length; layer++) {

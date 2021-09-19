@@ -12,7 +12,7 @@ class Obstacles extends Level {
 
 					// generating trees (obstacles)
 
-					let tempTree = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE, TILESIZE, true, TREE_BLOCK);
+					let tempTree = new Tile(j * TILESIZE, i * TILESIZE, TILESIZE+20, TILESIZE+20, true, TREE_BLOCK);
 					tempTree.onCollisionEnter = () => {
 						new Dialog(["voce pega madeira kkk"], "ok massa").show("dialogs");
 					};
