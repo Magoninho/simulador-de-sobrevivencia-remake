@@ -79,7 +79,11 @@ class Game {
 			const currentLayer = this.blocks[layer];
 			for (let blockIndex = 0; blockIndex < currentLayer.length; blockIndex++) {
 				const block = currentLayer[blockIndex];
-				block.render(ctx);
+				if (block.x > this.player.x - (GAME_WIDTH/2) - TILESIZE*RENDER_DISTANCE &&
+					block.x < this.player.x + (GAME_WIDTH/2) + TILESIZE*RENDER_DISTANCE &&
+					block.y > this.player.y - (GAME_HEIGHT/2) - TILESIZE*RENDER_DISTANCE &&
+					block.y < this.player.y + (GAME_HEIGHT/2) + TILESIZE*RENDER_DISTANCE)	
+					block.render(ctx);
 			}
 			
 		}

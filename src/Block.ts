@@ -22,7 +22,7 @@ class Block {
 	}
 
 	public update() {
-
+		
 	}
 
 	render(ctx): void {
