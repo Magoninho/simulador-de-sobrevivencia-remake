@@ -41,7 +41,7 @@ class Game {
 			this.blocks.push(layer.buildLevel());
 		}
 
-		console.log(this.blocks);
+		// console.log(this.blocks);
 
 		this.mobList = [
 			new Canguru(Math.floor(Math.random() * WORLD_WIDTH - 200) + 200, WORLD_HEIGHT - 200, 200, 100),
@@ -54,7 +54,10 @@ class Game {
 	
 	// updates mobs, tiles etc
 	update(deltaTime) {
+		// updates the player
 		this.player.update(deltaTime);
+
+		// updates all mobs
 		for (let mob = 0; mob < this.mobList.length; mob++) {
 			if (this.mobList[mob].defeated) {
 				if (mob > -1) {
@@ -70,19 +73,28 @@ class Game {
 		this.statsManager.update();
 	}
 
-	// rendering entities, tiles, and stuff
+	isWithinRenderDistance(block: Tile, renderDistance: number) {
+		return (block.x > this.player.x - (GAME_WIDTH/2) - TILESIZE*renderDistance &&
+				block.x < this.player.x + (GAME_WIDTH/2) + TILESIZE*renderDistance &&
+				block.y > this.player.y - (GAME_HEIGHT/2) - TILESIZE*renderDistance &&
+				block.y < this.player.y + (GAME_HEIGHT/2) + TILESIZE*renderDistance);
+	}
+
+	// renders entities, tiles, and stuff
 	render(ctx) {
 
 		this.grass.render(ctx);
-		
+		// TODO: GET RID OF THIS LAYER THING, IT SUCKS
+		// TODO: MAKE A TILE FOR THE TREE BUT WITH THE GRASS UNDER IT
 		for (let layer = 0; layer < this.blocks.length; layer++) {
 			const currentLayer = this.blocks[layer];
 			for (let blockIndex = 0; blockIndex < currentLayer.length; blockIndex++) {
 				const block = currentLayer[blockIndex];
-				if (block.x > this.player.x - (GAME_WIDTH/2) - TILESIZE*RENDER_DISTANCE &&
-					block.x < this.player.x + (GAME_WIDTH/2) + TILESIZE*RENDER_DISTANCE &&
-					block.y > this.player.y - (GAME_HEIGHT/2) - TILESIZE*RENDER_DISTANCE &&
-					block.y < this.player.y + (GAME_HEIGHT/2) + TILESIZE*RENDER_DISTANCE)	
+
+				// optimization (render distance)
+				// TODO: make the same but for mobs and stuff
+				// renders the block if it is within the render distance
+				if (this.isWithinRenderDistance(block, RENDER_DISTANCE))
 					block.render(ctx);
 			}
 			
@@ -93,6 +105,7 @@ class Game {
 			this.mobList[mob].render(ctx);
 		}
 		
+		// rendering the player (really? :P)
 		this.player.render(ctx);
 	}
 }

@@ -1,5 +1,5 @@
 const seed = Date.now();
-const openSimplex = openSimplexNoise(seed);
+const openSimplex = openSimplexNoise(1633274013210);
 console.log(seed);
 
 const zoom = 8;

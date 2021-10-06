@@ -10,8 +10,13 @@ TODO
 - fodase eu vou fazer um sistema que quebrar as coisas clicando com o mouse mesmo
 - fazer uma caixa de colisão para o player
 - fazer o player ficar lento ao entrar na agua
+- tirar essa parada de layers, não é o jeito correto de se fazer
 - e muuuita coisa...
 
+
+como consertar as colisões lixo? siga os passos
+1. tirar essa parada de layers, não é o jeito correto de se fazer
+2. fazer colisão por checagem de tiles nas direções e não AABB
 
 coisas para refatorar
 - o sistema de movimentação do player
@@ -29,3 +34,4 @@ Mob	  -> bichos que possuem a propriedade de onCollision para realizar coisas (e
 seeds com problema:
 1633273480469
 1633273513826
+1633274013210

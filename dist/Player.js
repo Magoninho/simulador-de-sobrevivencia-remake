@@ -10,7 +10,7 @@ class Player extends Mob {
         this.playerImage.src = "../images/profile.png";
         this.isMoving = false;
         this.playerCoordinates = new Coordinates(10, 15, this);
-        // this will make sure that the player won't spawn suffocated in a block
+        // this will make sure (almost) that the player won't spawn suffocated in a block
         while (getTileAt(this.x, this.y, LEVEL) == 1 ||
             getTileAt(this.x, this.y, LEVEL) == 3) {
             // todo: change this later
@@ -29,6 +29,7 @@ class Player extends Mob {
         if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
             this.vx = dx * PLAYER_SPEED * deltaTime;
             this.vy = dy * PLAYER_SPEED * deltaTime;
+            // fixing the faster diagonal problem
             if (dx != 0 && dy != 0) {
                 this.vx /= 1.414;
                 this.vy /= 1.414;
