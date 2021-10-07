@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Magoninho/simulador-de-sobrevivencia-remake/issues"
   },
-  "homepage": "https://github.com/Magoninho/simulador-de-sobrevivencia-remake#readme"
+  "homepage": "https://github.com/Magoninho/simulador-de-sobrevivencia-remake#readme",
+  "dependencies": {
+    "typescript": "^4.4.3"
+  }
 }

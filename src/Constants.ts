@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 
 const RENDER_DISTANCE = 6;
 
