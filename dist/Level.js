@@ -6,6 +6,7 @@ class Level {
         // tipo, this.entities = []
         // pensar nisso depois
     }
+    // this will be implemented in subclasses
     buildLevel() {
         return this.blocks;
     }

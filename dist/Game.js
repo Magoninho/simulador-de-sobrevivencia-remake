@@ -10,6 +10,7 @@ class Game {
         // instanciate stuff
         this.grass = new Grass(); // TODO: REMOVE THIS
         this.inputHandler = new InputHandler(this);
+        this.spritesheet = new SpriteSheet("../images/spritesheet.png", TILESIZE);
         this.player = new Player(game, PLAYER_INITIAL_POSITION_X, PLAYER_INITIAL_POSITION_Y);
         // TODO: make a layers array later
         this.levelLayers = [
