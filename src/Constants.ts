@@ -6,7 +6,7 @@ const GAME_WIDTH = 600;
 const GAME_HEIGHT = 500;
 
 
-const TILESIZE = 32;
+const TILESIZE = 48;
 
 const LEVEL: number[][] = generateMap(60, 60);
 

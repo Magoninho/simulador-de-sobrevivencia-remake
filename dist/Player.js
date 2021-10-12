@@ -11,6 +11,7 @@ class Player extends Mob {
         this.isMoving = false;
         this.playerCoordinates = new Coordinates(10, 15, this);
         // this will make sure (almost) that the player won't spawn suffocated in a block
+        // TODO! important one: change this to AABB collision and change the default collision to getTile, or something like that
         while (getTileAt(this.x, this.y, LEVEL) == 1 ||
             getTileAt(this.x, this.y, LEVEL) == 3) {
             // todo: change this later
@@ -26,7 +27,7 @@ class Player extends Mob {
     *
     */
     move(dx, dy, deltaTime) {
-        if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[OBSTACLES_LAYER])) {
+        if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[GROUND_LAYER])) {
             this.vx = dx * PLAYER_SPEED * deltaTime;
             this.vy = dy * PLAYER_SPEED * deltaTime;
             // fixing the faster diagonal problem
@@ -38,7 +39,6 @@ class Player extends Mob {
             this.y += this.vy;
             // this will check collisions with tiles that have collision functions defined
             this.applyTileCollisions(game.blocks[GROUND_LAYER]);
-            this.applyTileCollisions(game.blocks[OBSTACLES_LAYER]);
         }
     }
     // TODO: fazer um array com walls e um loop pra testar colisão com cada um dentro dessa função

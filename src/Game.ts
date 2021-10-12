@@ -8,7 +8,7 @@ class Game {
 	levelLayers: Level[];
 	mobList: Mob[];
 
-	spritesheet: SpriteSheet;
+	spritesheet: HTMLImageElement;
 
 	testeMob: TesteMob;
 	statsManager: StatsManager;
@@ -27,14 +27,14 @@ class Game {
 		// instanciate stuff
 		this.grass = new Grass(); // TODO: REMOVE THIS
 		this.inputHandler = new InputHandler(this);
-		this.spritesheet = new SpriteSheet("../images/spritesheet.png", TILESIZE);
+		this.spritesheet = new Image();
+		this.spritesheet.src = "../images/spritesheet2.png";
 		this.player = new Player(game, PLAYER_INITIAL_POSITION_X, PLAYER_INITIAL_POSITION_Y);
 
 		// TODO: make a layers array later
 
 		this.levelLayers = [
-			new Ground(LEVEL),
-			new Obstacles(LEVEL)
+			new Ground(LEVEL)
 		];
 
 		this.blocks = [];

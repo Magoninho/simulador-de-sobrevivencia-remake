@@ -17,9 +17,5 @@ class SpriteSheet {
         // 	}
         // }
     }
-    drawSprite(row, col) {
-        // ctx.drawImage(
-        // );
-    }
 }
 //# sourceMappingURL=SpriteSheet.js.map

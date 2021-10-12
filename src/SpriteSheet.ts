@@ -27,10 +27,4 @@ class SpriteSheet {
 		// }
 		
 	}
-
-	public drawSprite(row: number, col: number): void {
-		// ctx.drawImage(
-			
-		// );
-	}
 }

@@ -30,8 +30,3 @@ Tile  -> blocos lixo, mas pode ser colidivel (com a propriedade de onCollision) 
 Block -> blocos sempre colidiveis (com a propriedade de onCollision) e agem como paredes (ex: arvores)
 Mob	  -> bichos que possuem a propriedade de onCollision para realizar coisas (ex: canguru)
 
-
-seeds com problema:
-1633273480469
-1633273513826
-1633274013210
