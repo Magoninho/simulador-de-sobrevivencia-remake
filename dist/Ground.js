@@ -9,7 +9,7 @@ class Ground extends Level {
                 let tile = this.level[i][j];
                 if (tile == 1) {
                     // water
-                    let temp = new Tile(j * TILESIZE, i * TILESIZE, 7, 6, false);
+                    let temp = new Tile(j * TILESIZE, i * TILESIZE, 0, 2, false);
                     temp.onCollisionEnter = () => {
                         game.statsManager.thirstIncrease(0.2);
                         let drink_audio = document.getElementById("drink_audio");
@@ -20,11 +20,11 @@ class Ground extends Level {
                 }
                 else if (tile == 2) {
                     // grass
-                    let temp = new Tile(j * TILESIZE, i * TILESIZE, 7, 7, false);
+                    let temp = new Tile(j * TILESIZE, i * TILESIZE, 0, 0, false);
                     this.blocks.push(temp);
                 }
                 else if (tile == 3) {
-                    let tempTree = new Tile(j * TILESIZE, i * TILESIZE, 7, 5, true);
+                    let tempTree = new Tile(j * TILESIZE, i * TILESIZE, 0, 1, true);
                     tempTree.onCollisionEnter = () => {
                         new Dialog(["voce pega madeira kkk"], "ok massa").show("dialogs");
                     };
