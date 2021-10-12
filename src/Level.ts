@@ -21,6 +21,7 @@ class Level {
 	}
 
 	public getTile(x: number, y: number): Tile {
-		return this.blocks[x + y * this.level[0].length];
+		if (this.blocks[x + y * this.level[0].length] != undefined)
+			return this.blocks[x + y * this.level[0].length];
 	}
 }

@@ -14,7 +14,8 @@ class Level {
         return this.level;
     }
     getTile(x, y) {
-        return this.blocks[x + y * this.level[0].length];
+        if (this.blocks[x + y * this.level[0].length] != undefined)
+            return this.blocks[x + y * this.level[0].length];
     }
 }
 //# sourceMappingURL=Level.js.map

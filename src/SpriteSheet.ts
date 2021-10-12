@@ -1,4 +1,4 @@
-// TODO: finish this up
+// FIXME: this class is useless
 class SpriteSheet {
 
 	spritesheet: HTMLImageElement;

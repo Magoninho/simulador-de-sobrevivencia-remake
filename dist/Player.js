@@ -27,19 +27,20 @@ class Player extends Mob {
     *
     */
     move(dx, dy, deltaTime) {
-        if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(game.blocks[GROUND_LAYER])) {
-            this.vx = dx * PLAYER_SPEED * deltaTime;
-            this.vy = dy * PLAYER_SPEED * deltaTime;
-            // fixing the faster diagonal problem
-            if (dx != 0 && dy != 0) {
-                this.vx /= 1.414;
-                this.vy /= 1.414;
-            }
-            this.x += this.vx;
-            this.y += this.vy;
-            // this will check collisions with tiles that have collision functions defined
-            this.applyTileCollisions(game.blocks[GROUND_LAYER]);
+        this.vx = dx * PLAYER_SPEED * deltaTime;
+        this.vy = dy * PLAYER_SPEED * deltaTime;
+        // fixing the faster diagonal problem
+        if (dx != 0 && dy != 0) {
+            this.vx /= 1.414;
+            this.vy /= 1.414;
         }
+        if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(this.vx, 0)) {
+            this.x += this.vx;
+        }
+        if (!this.isCollidingWithMob(game.mobList) && !this.isCollidingWithRigidTiles(0, this.vy)) {
+            this.y += this.vy;
+        }
+        this.applyTileCollisions(game.blocks[GROUND_LAYER]);
     }
     // TODO: fazer um array com walls e um loop pra testar colisão com cada um dentro dessa função
     // TODO: renomear para isCollidingWithWalls pra fazer sentido essa alteração
@@ -58,20 +59,14 @@ class Player extends Mob {
         }
         return false;
     }
-    // TODO: move this function to another place idk
-    isCollidingWithRigidTiles(arr) {
-        for (let index = 0; index < arr.length; index++) {
-            if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
-                this.x + (this.dx * 10) + PLAYER_SIZE > arr[index].x &&
-                this.y + (this.dy * 10) < arr[index].y + arr[index].height &&
-                this.y + (this.dy * 10) + PLAYER_SIZE > arr[index].y &&
-                arr[index].rigid) {
-                return true;
-            }
-        }
-        return false;
+    isCollidingWithRigidTiles(xa, ya) {
+        let tile = game.levelLayers[0].getTile(this.x + xa * 5, this.y + ya * 5);
+        // is the tile rigid?
+        if (tile !== undefined)
+            return tile.rigid;
+        else
+            return false;
     }
-    // TODO: ask for level as parameter, and loop through the level and then make the collisions with all tiles
     applyTileCollisions(arr) {
         for (let index = 0; index < arr.length; index++) {
             if (this.x + (this.dx * 10) < arr[index].x + arr[index].width &&
@@ -97,11 +92,11 @@ class Player extends Mob {
         if (this.y < 0)
             this.y = 0;
         if (this.y > this.game.levelLayers[GROUND_LAYER].getLevel().length * TILESIZE - PLAYER_SIZE)
-            this.y = this.game.levelLayers[1].getLevel().length * TILESIZE - PLAYER_SIZE;
+            this.y = this.game.levelLayers[GROUND_LAYER].getLevel().length * TILESIZE - PLAYER_SIZE;
         this.playerCoordinates.update();
     }
     render(ctx) {
-        ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+        ctx.drawImage(this.playerImage, this.x - this.width / 2, this.y - this.height / 2, PLAYER_SIZE, PLAYER_SIZE);
         if (DEBUG)
             this.playerCoordinates.render(ctx);
     }

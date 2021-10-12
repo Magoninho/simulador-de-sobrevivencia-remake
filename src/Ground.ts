@@ -26,9 +26,9 @@ class Ground extends Level {
 				} else if (tile == 3) {
 
 					let tempTree = new Tile(j * TILESIZE, i * TILESIZE, 0, 1, true);
-					tempTree.onCollisionEnter = () => {
-						new Dialog(["voce pega madeira kkk"], "ok massa").show("dialogs");
-					};
+					// tempTree.onCollisionEnter = () => {
+					// 	new Dialog(["voce pega madeira kkk"], "ok massa").show("dialogs");
+					// };
 					this.blocks.push(tempTree);
 				}
 			}
@@ -46,6 +46,6 @@ class Ground extends Level {
 	}
 
 	public getTile(x: number, y: number): Tile {
-		return this.blocks[x + y * this.level[0].length];
+		return this.blocks[Math.floor(x/TILESIZE) + Math.floor(y/TILESIZE) * this.level[0].length];
 	}
 }

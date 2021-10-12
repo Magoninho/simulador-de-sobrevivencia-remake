@@ -110,5 +110,13 @@ class Game {
 		
 		// rendering the player (really? :P)
 		this.player.render(ctx);
+		if (DEBUG) {
+			ctx.strokeStyle = 'red';
+			ctx.lineWidth = 10;
+			ctx.beginPath();
+			ctx.moveTo(this.player.x, this.player.y);
+			ctx.lineTo(this.player.x + this.player.vx * 5, this.player.y + this.player.vy * 5);
+			ctx.stroke();
+		}
 	}
 }
