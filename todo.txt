@@ -25,6 +25,10 @@ coisas para refatorar
 estágios finais de desenvolvimento:
 - fazer umas constante com valores pra blocos e consertar a colisão do player
 
+Fazer um sistema de ataque do player:
+1. armazenar a informação de onde o jogador está olhando (facingTo)
+2.
+
 Plano:
 Tile  -> blocos lixo, mas pode ser colidivel (com a propriedade de onCollision) ou nao (ex: agua)
 Block -> blocos sempre colidiveis (com a propriedade de onCollision) e agem como paredes (ex: arvores)

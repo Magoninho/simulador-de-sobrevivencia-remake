@@ -112,10 +112,10 @@ class Game {
 		this.player.render(ctx);
 		if (DEBUG) {
 			ctx.strokeStyle = 'red';
-			ctx.lineWidth = 10;
+			ctx.lineWidth = 5;
 			ctx.beginPath();
-			ctx.moveTo(this.player.x, this.player.y);
-			ctx.lineTo(this.player.x + this.player.vx * 5, this.player.y + this.player.vy * 5);
+			ctx.moveTo(this.player.x + TILESIZE, this.player.y);
+			ctx.lineTo(this.player.x + TILESIZE + this.player.vx, this.player.y + this.player.vy);
 			ctx.stroke();
 		}
 	}

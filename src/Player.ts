@@ -89,14 +89,39 @@ class Player extends Mob {
 		return false;
 	}
 
-	private isCollidingWithRigidTiles(xa: number, ya: number): any {
-		
-		let tile: Tile = game.levelLayers[0].getTile(this.x + xa * 5, this.y + ya * 5);
-		// is the tile rigid?
-		if (tile !== undefined)
-			return tile.rigid;
-		else 
+	private isCollidingWithRigidTiles(xa: number, ya: number): boolean {
+
+		// The next position the player will walk to
+		let nextX: number = this.x + xa;
+		let nextY: number = this.y + ya;
+
+		// Now checking if there is collision in the next position in all corners of the square
+		// Top left
+		let topLeftX: number = nextX;
+		let topLeftY: number = nextY;
+
+		// Top right
+		let topRightX: number = (nextX + TILESIZE);
+		let topRightY: number = nextY;
+
+		// Bottom left
+		let bottomLeftX: number = nextX;
+		let bottomLeftY: number = (nextY + TILESIZE);
+
+		// Bottom right
+		let bottomRightX: number = (nextX + TILESIZE);
+		let bottomRightY: number = (nextY + TILESIZE);
+
+		// If there is an error, return false
+		try {
+			return 	game.levelLayers[0].getTile(topLeftX, topLeftY)			.rigid ||
+					game.levelLayers[0].getTile(topRightX, topRightY)		.rigid ||
+					game.levelLayers[0].getTile(bottomLeftX, bottomLeftY)	.rigid ||
+					game.levelLayers[0].getTile(bottomRightX, bottomRightY)	.rigid;
+		} catch (e) {
 			return false;
+		}
+
 	}
 
 	private applyTileCollisions(arr: Tile[]): void {
@@ -137,7 +162,8 @@ class Player extends Mob {
 	}
 
 	public render(ctx: CanvasRenderingContext2D): void {
-		ctx.drawImage(this.playerImage, this.x - this.width/2, this.y - this.height/2, PLAYER_SIZE, PLAYER_SIZE);
+		ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+		ctx.fillRect(this.x, this.y, this.width, this.height);
 
 		if (DEBUG) this.playerCoordinates.render(ctx);
 	}
