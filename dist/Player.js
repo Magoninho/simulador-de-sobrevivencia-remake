@@ -117,7 +117,6 @@ class Player extends Mob {
     }
     render(ctx) {
         ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
-        ctx.fillRect(this.x, this.y, this.width, this.height);
         if (DEBUG)
             this.playerCoordinates.render(ctx);
     }

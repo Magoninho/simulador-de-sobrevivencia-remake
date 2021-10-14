@@ -114,8 +114,8 @@ class Game {
 			ctx.strokeStyle = 'red';
 			ctx.lineWidth = 5;
 			ctx.beginPath();
-			ctx.moveTo(this.player.x + TILESIZE, this.player.y);
-			ctx.lineTo(this.player.x + TILESIZE + this.player.vx, this.player.y + this.player.vy);
+			ctx.moveTo(this.player.x + this.player.width/2, this.player.y + this.player.height/2);
+			ctx.lineTo(this.player.x + this.player.width/2 + this.player.vx * 5, this.player.y + this.player.height/2 + this.player.vy * 5);
 			ctx.stroke();
 		}
 	}
