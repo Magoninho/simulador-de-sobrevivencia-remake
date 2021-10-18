@@ -162,7 +162,7 @@ class Player extends Mob {
 	}
 
 	public render(ctx: CanvasRenderingContext2D): void {
-		ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);
+		ctx.drawImage(this.playerImage, this.x, this.y, PLAYER_SIZE, PLAYER_SIZE);	
 
 		if (DEBUG) this.playerCoordinates.render(ctx);
 	}
