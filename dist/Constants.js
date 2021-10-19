@@ -1,4 +1,4 @@
-const DEBUG = false;
+const DEBUG = true;
 const RENDER_DISTANCE = 6;
 const GAME_WIDTH = 600;
 const GAME_HEIGHT = 500;
